@@ -4,7 +4,7 @@ import SideNavBar from "./components/layout/SideNavBar";
 
 function App() {
   return (
-    <div className="grid grid-cols-[3.5rem_16rem_1fr] grid-rows-[auto_1fr_22rem_1.5rem] min-h-screen overflow-hidden text-silver">
+    <div className="grid grid-cols-[3rem_16rem_1fr] grid-rows-[auto_1fr_22rem_1.5rem] min-h-screen overflow-hidden text-silver">
       <Header />
       <LeftPanel />
       <SideNavBar />
