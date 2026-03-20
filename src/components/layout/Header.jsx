@@ -11,7 +11,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search . . ."
-              className="px-2 py-1 bg-transparent text-obsidian placeholder:text-steel/50 rounded-sm outline-none"
+              className="px-2 py-1 bg-transparent text-obsidian placeholder:text-steel/50 placeholder:italic rounded-sm outline-none"
             />
             <Search className="text-steel cursor-pointer" />
           </div>
