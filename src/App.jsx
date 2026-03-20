@@ -8,8 +8,12 @@ function App() {
       <Header />
       <LeftPanel />
       <SideNavBar />
-      <main className="p-5 bg-obsidian">Editor</main>
-      <section className="p-5 bg-obsidian">Terminal</section>
+      <main className="col-start-3 col-end-4 row-start-2 row-end-3 p-5 bg-obsidian">
+        Editor
+      </main>
+      <section className="col-start-3 col-end-4 row-start-3 row-end-4 p-5 bg-obsidian">
+        Terminal
+      </section>
       <footer className="col-start-1 col-end-4 bg-midnight">Footer</footer>
     </div>
   );
