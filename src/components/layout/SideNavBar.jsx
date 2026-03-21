@@ -1,4 +1,4 @@
-import TreeItem from "./navbar/TreeItem";
+import TreeItem from "./TreeItem";
 import { navItems } from "../../data/navigation";
 
 const SideNavBar = () => {

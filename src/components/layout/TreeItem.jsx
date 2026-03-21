@@ -1,5 +1,5 @@
 import { LuChevronDown } from "react-icons/lu";
-import { ICON_MAP } from "../../../constants/IconRegistry";
+import { ICON_MAP } from "../../constants/IconRegistry";
 
 const TreeItem = ({ item }) => {
   const isFolder = item.type === "folder" || item.type === "root";
