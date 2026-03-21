@@ -1,7 +1,14 @@
-import React from "react";
+import Breadcrumb from "./Breadcrumb";
+import FileTab from "./FileTab";
 
-const Editor = () => {
-  return <main className="p-5 bg-obsidian">Editor</main>;
+const Editor = ({ children }) => {
+  return (
+    <main className="bg-obsidian">
+      <FileTab />
+      <Breadcrumb />
+      {children}
+    </main>
+  );
 };
 
 export default Editor;
