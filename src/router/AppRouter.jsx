@@ -5,13 +5,15 @@ import {
   createRoutesFromElements,
   Navigate,
 } from "react-router-dom";
+import BaseLayout from "../layouts/BaseLayout";
+import HomePage from "../pages/HomePage";
 
 const AppRouter = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route element={<BaseLayout />}>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
       </>,
     ),
