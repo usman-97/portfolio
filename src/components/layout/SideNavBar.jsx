@@ -1,7 +1,10 @@
 import TreeItem from "./TreeItem";
 import { navItems } from "../../data/navigation";
+import { useLocation } from "react-router-dom";
 
 const SideNavBar = () => {
+  const location = useLocation();
+
   return (
     <nav className="row-start-2 row-end-4 bg-midnight text-silver/50 font-mono border-r-2 border-steel">
       <div className="flex items-center p-2 border-b-2 border-b-steel">
@@ -9,7 +12,11 @@ const SideNavBar = () => {
       </div>
       <div className="mt-2 text-sm">
         {navItems.map((item) => (
-          <TreeItem key={item.id} item={item} />
+          <TreeItem
+            key={item.id}
+            item={item}
+            isActive={item.route && item.route === location.pathname}
+          />
         ))}
       </div>
     </nav>

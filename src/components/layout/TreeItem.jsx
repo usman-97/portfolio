@@ -2,7 +2,7 @@ import { LuChevronDown } from "react-icons/lu";
 import { ICON_MAP } from "../../constants/IconRegistry";
 import { Link } from "react-router-dom";
 
-const TreeItem = ({ item }) => {
+const TreeItem = ({ item, isActive = false }) => {
   const isFolder = item.type === "folder" || item.type === "root";
   const icon =
     ICON_MAP[item.icon] ||
@@ -11,7 +11,7 @@ const TreeItem = ({ item }) => {
   return (
     <Link to={item.route}>
       <div
-        className="flex items-center py-1.5 space-x-1 hover:bg-steel hover:text-silver cursor-pointer group"
+        className={`flex items-center py-1.5 space-x-1 cursor-pointer group ${isActive ? "bg-emerald-500/10 text-emerald-400 font-medium" : "hover:bg-steel hover:text-silver"}`}
         style={{
           paddingLeft: `${item.level * 12 + 8}px`,
         }}
@@ -25,7 +25,9 @@ const TreeItem = ({ item }) => {
           )}
         </span>
         {item.type !== "root" && (
-          <span className="flex items-center justify-center shrink-0 mr-1 w-6 text-silver/50 group-hover:text-silver">
+          <span
+            className={`flex items-center justify-center shrink-0 mr-1 w-6 ${isActive ? "text-emerald-400" : "text-silver/50 group-hover:text-silver"}`}
+          >
             {icon}
           </span>
         )}
