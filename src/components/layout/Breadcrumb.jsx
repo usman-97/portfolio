@@ -13,7 +13,7 @@ const Breadcrumb = () => {
   console.log(breadcrumbItems);
 
   return (
-    <div className="flex items-center mt-1 ml-5 text-xs text-silver/50">
+    <div className="flex items-center mt-1 ml-5 text-xs text-silver/50 cursor-pointer">
       {breadcrumbItems.map((item, key) => {
         const isFolder = item.type === "folder" || item.type === "root";
         const icon =
@@ -21,11 +21,13 @@ const Breadcrumb = () => {
           (isFolder ? ICON_MAP.defaultFolder : ICON_MAP.defaultFile);
         return (
           <div key={key} className="flex items-center">
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-1 hover:text-silver">
               {!isFolder && <span>{icon}</span>}
               <p>{item.name}</p>
             </div>
-            {key < breadcrumbItems.length - 1 && <LuChevronRight size={25} />}
+            {key < breadcrumbItems.length - 1 && (
+              <LuChevronRight size={25} className="hover:text-silver" />
+            )}
           </div>
         );
       })}
