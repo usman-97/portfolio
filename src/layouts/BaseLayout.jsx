@@ -3,6 +3,7 @@ import Editor from "../components/layout/Editor";
 import Header from "../components/layout/Header";
 import LeftPanel from "../components/layout/LeftPanel";
 import SideNavBar from "../components/layout/SideNavBar";
+import Terminal from "../components/layout/Terminal";
 
 const BaseLayout = () => {
   return (
@@ -14,9 +15,7 @@ const BaseLayout = () => {
         <Editor>
           <Outlet />
         </Editor>
-        <section className="col-start-3 col-end-4 row-start-3 row-end-4 p-5 bg-obsidian">
-          Terminal
-        </section>
+        <Terminal />
         <footer className="col-start-1 col-end-4 bg-midnight">Footer</footer>
       </div>
     </>
