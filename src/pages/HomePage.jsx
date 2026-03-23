@@ -6,6 +6,8 @@ import {
   EDITOR_CONTAINER_STYLE,
   LINE_NUMBER_STYLE,
 } from "../constants/editorStyles";
+import { VscDebugBreakpointData } from "react-icons/vsc";
+import { motion } from "motion/react";
 
 const HomePage = () => {
   return (
@@ -29,12 +31,36 @@ const HomePage = () => {
           return (
             <div
               key={index}
-              className="flex items-end leading-relaxed group text-2xl"
+              className={`flex items-end ml-2 leading-relaxed group text-2xl ${isNameLine ? "bg-red-500/10" : ""}`}
             >
               <div
-                className="text-right pr-4 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
+                className="flex items-center text-right pr-4 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
                 style={{ ...LINE_NUMBER_STYLE, minWidth: "3.5rem" }}
               >
+                {isNameLine ? (
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{
+                      scale: [1, 1.15, 1],
+                      opacity: 1,
+                      filter: [
+                        "drop-shadow(0 0 2px rgba(239, 68, 68, 0.4))",
+                        "drop-shadow(0 0 8px rgba(239, 68, 68, 0.8))",
+                        "drop-shadow(0 0 2px rgba(239, 68, 68, 0.4))",
+                      ],
+                    }}
+                    transition={{
+                      scale: { repeat: Infinity, duration: 2 },
+                      filter: { repeat: Infinity, duration: 2 },
+                      opacity: { duration: 0.2 }, // Fast fade in
+                    }}
+                    className="inline-flex items-center justify-center mr-2 text-red-500"
+                  >
+                    <VscDebugBreakpointData />
+                  </motion.div>
+                ) : (
+                  <div className="w-6 mr-2" />
+                )}
                 {lineNumber}
               </div>
               <div>
