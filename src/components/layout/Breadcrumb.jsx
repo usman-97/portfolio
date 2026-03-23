@@ -10,7 +10,6 @@ const Breadcrumb = () => {
     (item) => item.route === location.pathname,
   );
   const breadcrumbItems = getBreadcrumbStack(currentPageItem?.id, navItems);
-  console.log(breadcrumbItems);
 
   return (
     <div className="flex items-center mt-1 ml-5 text-xs text-silver/50 cursor-pointer">
