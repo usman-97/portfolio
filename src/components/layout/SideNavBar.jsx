@@ -6,7 +6,7 @@ const SideNavBar = ({ setActiveFile }) => {
   const location = useLocation();
 
   return (
-    <nav className="row-start-2 row-end-4 bg-midnight text-silver/50 font-mono border-r-2 border-steel">
+    <nav className="row-start-2 row-end-3 bg-midnight text-silver/50 font-mono border-r-2 border-steel lg:row-end-4">
       <div className="flex items-center p-2 border-b-2 border-b-steel">
         <h2 className="text-sm uppercase">Explorer</h2>
       </div>

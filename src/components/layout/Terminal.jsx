@@ -37,8 +37,8 @@ const Terminal = ({ activeFile }) => {
       .join("/");
 
   return (
-    <section className="col-start-3 col-end-4 row-start-3 row-end-4 bg-obsidian">
-      <div className="flex items-start space-x-10 pl-5 pt-1 bg-midnight border-b border-steel">
+    <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
+      <div className="flex items-start shrink-0 space-x-10 pl-5 pt-1 bg-midnight border-b border-steel">
         <span className="text-silver/50">Terminal</span>
         <div className="flex items-center space-x-3 border-b-3 border-emerald">
           <span className="pl-2">Local</span>
@@ -48,7 +48,7 @@ const Terminal = ({ activeFile }) => {
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname}
-          className="flex flex-col space-y-1 p-3 text-xs"
+          className="flex-col flex-1 space-y-1 p-3 text-xs"
           variants={container}
           initial="hidden"
           animate="visible"
