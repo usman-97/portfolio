@@ -1,14 +1,17 @@
 import LogLine from "./LogLine";
+import { motion } from "motion/react";
 
-const TerminalProcess = ({ logs, ...props }) => {
+const TerminalProcess = ({ logs, animateItem, ...props }) => {
   return (
-    <div className="flex flex-col space-y-2 pb-2 pl-5">
-      <div>
-        {logs.map((logLine, key) => (
-          <LogLine logLine={logLine} key={key} fullPath={props.fullPath} />
-        ))}
-      </div>
-    </div>
+    <motion.div className="flex flex-col space-y-1 pb-2 pl-5">
+      {logs.map((logLine) => (
+        <LogLine
+          logLine={logLine}
+          fullPath={props.fullPath}
+          animateItem={animateItem}
+        />
+      ))}
+    </motion.div>
   );
 };
 

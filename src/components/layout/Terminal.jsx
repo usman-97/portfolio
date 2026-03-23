@@ -5,6 +5,20 @@ import { getBreadcrumbStack } from "../../utility/Location";
 import { navItems } from "../../data/navigation";
 import TerminalCommand from "./terminal/TerminalCommand";
 import TerminalProcess from "./terminal/TerminalProcess";
+import { motion } from "motion/react";
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.5, delayChildren: 0.2 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 
 const Terminal = ({ activeFile }) => {
   const content = fileContents[activeFile];
@@ -30,7 +44,12 @@ const Terminal = ({ activeFile }) => {
           <IoMdClose />
         </div>
       </div>
-      <div className="flex flex-col space-y-1 p-3 text-xs">
+      <motion.div
+        className="flex flex-col space-y-1 p-3 text-xs"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
         <TerminalCommand
           tag="guest@profile$"
           command={`run ${currentPageItem?.name}`}
@@ -38,19 +57,32 @@ const Terminal = ({ activeFile }) => {
         <TerminalProcess
           logs={fileContents.terminalLogs.header}
           fullPath={fullPath}
+          animateItem={item}
         />
-        {content && (
-          <div className="flex flex-col space-y-2 pb-2">
-            <div className="w-full border-b border-dashed border-forest/50"></div>
-            <p className="py-2 px-15 text-[1rem] text-emerald text-shadow-emerald">
-              {content.terminalContent}
-            </p>
-            <div className="w-full border-b border-dashed border-forest/50"></div>
-          </div>
-        )}
-        <TerminalProcess logs={fileContents.terminalLogs.footer} />
-        <TerminalCommand tag="guest@profile$" showCursor={true} />
-      </div>
+        <motion.div>
+          {content && (
+            <motion.div
+              className="flex flex-col space-y-2 pb-2"
+              variants={item}
+            >
+              <div className="w-full border-b border-dashed border-forest/50"></div>
+              <p className="py-2 px-15 text-[1rem] text-emerald text-shadow-emerald">
+                {content.terminalContent}
+              </p>
+              <div className="w-full border-b border-dashed border-forest/50"></div>
+            </motion.div>
+          )}
+        </motion.div>
+        <TerminalProcess
+          logs={fileContents.terminalLogs.footer}
+          animateItem={item}
+        />
+        <TerminalCommand
+          tag="guest@profile$"
+          showCursor={true}
+          animateItem={item}
+        />
+      </motion.div>
     </section>
   );
 };
