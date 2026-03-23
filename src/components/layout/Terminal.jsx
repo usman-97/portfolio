@@ -16,8 +16,8 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
 };
 
 const Terminal = ({ activeFile }) => {
