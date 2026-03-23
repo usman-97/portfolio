@@ -27,7 +27,10 @@ const HomePage = () => {
           const lineNumber = index + 1;
 
           return (
-            <div key={index} className="flex items-end leading-relaxed group">
+            <div
+              key={index}
+              className="flex items-end leading-relaxed group text-2xl"
+            >
               <div
                 className="text-right pr-4 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
                 style={{ ...LINE_NUMBER_STYLE, minWidth: "3.5rem" }}
@@ -36,7 +39,7 @@ const HomePage = () => {
               </div>
               <div>
                 {isNameLine ? (
-                  <div className="flex items-end pl-4">
+                  <div className="flex items-end pl-7">
                     <span
                       style={
                         stylesheet.keyword || {
@@ -62,7 +65,7 @@ const HomePage = () => {
                         style={{
                           color: stylesheet.function?.color || "#34d399",
                           display: "inline-block",
-                          fontSize: "1.2rem",
+                          fontSize: "1.5rem",
                           fontWeight: "500",
                           textShadow: "0 0 8px rgba(52, 211, 153, 0.4)",
                         }}
