@@ -5,7 +5,6 @@ import { getBreadcrumbStack } from "../../utility/Location";
 import { navItems } from "../../data/navigation";
 import TerminalCommand from "./terminal/TerminalCommand";
 import TerminalProcess from "./terminal/TerminalProcess";
-import { useState } from "react";
 
 const Terminal = ({ activeFile }) => {
   const content = fileContents[activeFile];
