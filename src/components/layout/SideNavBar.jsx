@@ -2,7 +2,7 @@ import TreeItem from "./TreeItem";
 import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
 
-const SideNavBar = () => {
+const SideNavBar = ({ setActiveFile }) => {
   const location = useLocation();
 
   return (
@@ -11,13 +11,20 @@ const SideNavBar = () => {
         <h2 className="text-sm uppercase">Explorer</h2>
       </div>
       <div className="mt-2 text-sm">
-        {navItems.map((item) => (
-          <TreeItem
-            key={item.id}
-            item={item}
-            isActive={item.route && item.route === location.pathname}
-          />
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.route && item.route === location.pathname;
+          if (isActive) {
+            setActiveFile(item.name);
+          }
+
+          return (
+            <TreeItem
+              key={item.id}
+              item={item}
+              isActive={item.route && item.route === location.pathname}
+            />
+          );
+        })}
       </div>
     </nav>
   );

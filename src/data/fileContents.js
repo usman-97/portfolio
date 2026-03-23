@@ -1,9 +1,12 @@
-import { homeContent } from "./files/home";
+import { homeContent, terminalHomeContent } from "./files/home";
+import { terminalLogs } from "./files/terminal";
 
 export const fileContents = {
-    'home': {
+    'Home.jsx': {
         name: 'Home.jsx',
         language: 'javascript',
-        content: homeContent
-    }
+        content: homeContent,
+        terminalContent: terminalHomeContent
+    },
+    'terminalLogs': terminalLogs
 }
