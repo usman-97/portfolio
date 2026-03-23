@@ -10,8 +10,8 @@ import {
 const HomePage = () => {
   return (
     <CodeSyntaxHighlighter
-      language={fileContents.home.language}
-      codeString={fileContents.home.content}
+      language={fileContents["Home.jsx"].language}
+      codeString={fileContents["Home.jsx"].content}
       style={emeraldSyntaxTheme}
       customStyle={EDITOR_CONTAINER_STYLE}
       showLineNumbers={false}
