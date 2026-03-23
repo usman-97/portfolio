@@ -19,14 +19,12 @@ const Breadcrumb = () => {
           ICON_MAP[item.icon] ||
           (isFolder ? ICON_MAP.defaultFolder : ICON_MAP.defaultFile);
         return (
-          <div key={key} className="flex items-center">
-            <div className="flex items-center space-x-1 hover:text-silver">
+          <div key={key} className="flex items-center hover:text-silver">
+            <div className="flex items-center space-x-1">
               {!isFolder && <span>{icon}</span>}
               <p>{item.name}</p>
             </div>
-            {key < breadcrumbItems.length - 1 && (
-              <LuChevronRight size={25} className="hover:text-silver" />
-            )}
+            {key < breadcrumbItems.length - 1 && <LuChevronRight size={25} />}
           </div>
         );
       })}
