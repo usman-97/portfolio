@@ -45,6 +45,7 @@ const Terminal = ({ activeFile }) => {
         </div>
       </div>
       <motion.div
+        key={location.pathname}
         className="flex flex-col space-y-1 p-3 text-xs"
         variants={container}
         initial="hidden"
