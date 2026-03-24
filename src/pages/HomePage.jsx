@@ -8,6 +8,7 @@ import {
 } from "../constants/editorStyles";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 
 const HomePage = () => {
   return (
@@ -27,11 +28,21 @@ const HomePage = () => {
             .join("");
           const isNameLine = lineText.includes("ANIMATE_NAME");
           const lineNumber = index + 1;
+          const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+          useEffect(() => {
+            const handleResize = () => setWindowWidth(window.innerWidth);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+          }, []);
+
+          const isMobile = windowWidth < 768;
 
           return (
             <div
               key={index}
-              className={`flex items-end ml-2 leading-relaxed group text-2xl ${isNameLine ? "bg-red-500/10" : ""}`}
+              className={`flex items-end ml-2 leading-relaxed text-[12px] group overflow-hidden ${isNameLine ? "bg-red-500/10" : ""} md:text-2xl`}
+              style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
             >
               <div
                 className="flex items-center text-right pr-4 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
@@ -54,7 +65,7 @@ const HomePage = () => {
                       filter: { repeat: Infinity, duration: 2 },
                       opacity: { duration: 0.2 }, // Fast fade in
                     }}
-                    className="inline-flex items-center justify-center mr-2 text-red-500"
+                    className="inline-flex items-center justify-center mr-5 text-red-500 md:mr-2"
                   >
                     <VscDebugBreakpointData />
                   </motion.div>
@@ -65,7 +76,7 @@ const HomePage = () => {
               </div>
               <div>
                 {isNameLine ? (
-                  <div className="flex items-end pl-7">
+                  <div className="flex items-end pl-3 md:pl-7">
                     <span
                       style={
                         stylesheet.keyword || {
@@ -91,7 +102,7 @@ const HomePage = () => {
                         style={{
                           color: stylesheet.function?.color || "#34d399",
                           display: "inline-block",
-                          fontSize: "1.5rem",
+                          fontSize: isMobile ? "12px" : "1.5rem",
                           fontWeight: "500",
                           textShadow: "0 0 8px rgba(52, 211, 153, 0.4)",
                         }}

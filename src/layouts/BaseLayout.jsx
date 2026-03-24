@@ -11,7 +11,7 @@ const BaseLayout = () => {
 
   return (
     <>
-      <div className="grid grid-cols-[3rem_16rem_1fr] grid-rows-[auto_1fr_auto_1.5rem] min-h-screen text-silver lg:grid-rows-[auto_1fr_22rem_1.5rem]">
+      <div className="text-silver overflow-hidden min-h-screen md:grid md:grid-cols-[3rem_16rem_1fr] md:grid-rows-[auto_1fr_auto_1.5rem] md:overflow-auto lg:grid-rows-[auto_1fr_22rem_1.5rem]">
         <Header />
         <LeftPanel />
         <SideNavBar setActiveFile={setActiveFile} />

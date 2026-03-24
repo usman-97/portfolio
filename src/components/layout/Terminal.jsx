@@ -69,7 +69,7 @@ const Terminal = ({ activeFile }) => {
                 variants={item}
               >
                 <div className="w-full border-b border-dashed border-forest/50"></div>
-                <p className="py-2 px-15 text-[1rem] text-emerald text-shadow-emerald">
+                <p className="py-2 px-3 text-emerald text-shadow-emerald md:px-15 md:text-[1rem]">
                   {content.terminalContent}
                 </p>
                 <div className="w-full border-b border-dashed border-forest/50"></div>
