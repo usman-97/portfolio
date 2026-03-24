@@ -21,6 +21,8 @@ const Terminal = ({ activeFile }) => {
         return location.name;
       })
       .join("/");
+  const activeFileParentDirectory = fullPath.replace("/" + activeFile, "");
+  const commandTag = "guest@profile: " + activeFileParentDirectory + "$";
 
   return (
     <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
@@ -39,6 +41,7 @@ const Terminal = ({ activeFile }) => {
           footerLogs={content.terminalContent.footer}
           terminalContent={data.body}
           fullPath={fullPath}
+          commandTag={commandTag}
         />
       ) : (
         <div></div>
