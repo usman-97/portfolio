@@ -3,26 +3,12 @@ import { fileContents } from "../../data/fileContents";
 import { useLocation } from "react-router-dom";
 import { getBreadcrumbStack } from "../../utility/Location";
 import { navItems } from "../../data/navigation";
-import TerminalCommand from "./terminal/TerminalCommand";
-import TerminalProcess from "./terminal/TerminalProcess";
-import { motion, AnimatePresence } from "motion/react";
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.5, delayChildren: 0.2 },
-  },
-  exit: { opacity: 0, transition: { duration: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, x: -10 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
-};
+import TerminalProcessMode from "./terminal/TerminalProcessMode";
+import { terminalData } from "../../constants/TerminalData";
 
 const Terminal = ({ activeFile }) => {
   const content = fileContents[activeFile];
+  const data = terminalData[activeFile] || "PROCESS";
   const location = useLocation();
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
@@ -45,48 +31,18 @@ const Terminal = ({ activeFile }) => {
           <IoMdClose />
         </div>
       </div>
-      <AnimatePresence mode="wait">
-        <motion.div
+      {data.mode === "PROCESS" ? (
+        <TerminalProcessMode
           key={location.pathname}
-          className="flex-col flex-1 space-y-1 p-3 text-xs"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <TerminalCommand
-            tag="guest@profile$"
-            command={`run ${currentPageItem?.name}`}
-          />
-          <TerminalProcess
-            logs={fileContents.terminalLogs.header}
-            fullPath={fullPath}
-            animateItem={item}
-          />
-          <motion.div>
-            {content && (
-              <motion.div
-                className="flex flex-col space-y-2 pb-2"
-                variants={item}
-              >
-                <div className="w-full border-b border-dashed border-forest/50"></div>
-                <p className="py-2 px-3 text-emerald text-shadow-emerald md:px-15 md:text-[1rem]">
-                  {content.terminalContent}
-                </p>
-                <div className="w-full border-b border-dashed border-forest/50"></div>
-              </motion.div>
-            )}
-          </motion.div>
-          <TerminalProcess
-            logs={fileContents.terminalLogs.footer}
-            animateItem={item}
-          />
-          <TerminalCommand
-            tag="guest@profile$"
-            showCursor={true}
-            animateItem={item}
-          />
-        </motion.div>
-      </AnimatePresence>
+          currentPage={activeFile}
+          headerLogs={content.terminalContent.header}
+          footerLogs={content.terminalContent.footer}
+          terminalContent={data.body}
+          fullPath={fullPath}
+        />
+      ) : (
+        <div></div>
+      )}
     </section>
   );
 };

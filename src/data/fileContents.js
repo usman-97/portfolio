@@ -15,5 +15,4 @@ export const fileContents = {
         content: contactContent,
         terminalContent: terminalContactContent
     },
-    'terminalLogs': terminalLogs
 }
