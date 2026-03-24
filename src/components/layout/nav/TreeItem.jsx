@@ -1,5 +1,5 @@
 import { LuChevronDown } from "react-icons/lu";
-import { ICON_MAP } from "../../constants/IconRegistry";
+import { ICON_MAP } from "../../../constants/IconRegistry";
 import { Link } from "react-router-dom";
 
 const TreeItem = ({ item, isActive = false }) => {

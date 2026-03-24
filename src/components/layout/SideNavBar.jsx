@@ -1,4 +1,4 @@
-import TreeItem from "./TreeItem";
+import TreeItem from "./nav/TreeItem";
 import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
 
