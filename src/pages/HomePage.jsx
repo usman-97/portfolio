@@ -9,6 +9,7 @@ import {
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
+import { useMobile } from "../hooks/useMobile";
 
 const HomePage = () => {
   return (
@@ -28,15 +29,7 @@ const HomePage = () => {
             .join("");
           const isNameLine = lineText.includes("ANIMATE_NAME");
           const lineNumber = index + 1;
-          const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-          useEffect(() => {
-            const handleResize = () => setWindowWidth(window.innerWidth);
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-          }, []);
-
-          const isMobile = windowWidth < 768;
+          const isMobile = useMobile();
 
           return (
             <div
