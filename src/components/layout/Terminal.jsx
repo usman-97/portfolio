@@ -42,6 +42,7 @@ const Terminal = ({ activeFile }) => {
           terminalContent={data.body}
           fullPath={fullPath}
           commandTag={commandTag}
+          command={data.command}
         />
       ) : (
         <div></div>

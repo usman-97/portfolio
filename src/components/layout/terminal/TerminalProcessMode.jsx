@@ -25,6 +25,7 @@ const TerminalProcessMode = ({
   terminalContent,
   footerLogs,
   commandTag,
+  command,
 }) => {
   return (
     <AnimatePresence mode="wait">
@@ -35,7 +36,7 @@ const TerminalProcessMode = ({
         initial="hidden"
         animate="visible"
       >
-        <TerminalCommand tag={commandTag} command={`run ${currentPage}`} />
+        <TerminalCommand tag={commandTag} command={command} />
         <TerminalProcess
           logs={headerLogs}
           fullPath={fullPath}
