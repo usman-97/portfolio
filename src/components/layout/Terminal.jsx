@@ -34,21 +34,22 @@ const Terminal = ({ activeFile }) => {
           <IoMdClose />
         </div>
       </div>
-      {data.mode === "PROCESS" ? (
-        <TerminalProcessMode
-          key={location.pathname}
-          currentPage={activeFile}
-          headerLogs={content.terminalContent.header}
-          footerLogs={content.terminalContent.footer}
-          terminalContent={data.body}
-          fullPath={fullPath}
-          commandTag={commandTag}
-          command={data.command}
-          comandTagPath={comandTagPath}
-        />
-      ) : (
-        <div></div>
-      )}
+      {content?.terminalContent &&
+        (data.mode === "PROCESS" ? (
+          <TerminalProcessMode
+            key={location.pathname}
+            currentPage={activeFile}
+            headerLogs={content?.terminalContent?.header}
+            footerLogs={content?.terminalContent?.footer}
+            terminalContent={data.body}
+            fullPath={fullPath}
+            commandTag={commandTag}
+            command={data.command}
+            comandTagPath={comandTagPath}
+          />
+        ) : (
+          <div></div>
+        ))}
     </section>
   );
 };
