@@ -19,13 +19,13 @@ const item = {
 
 const TerminalProcessMode = ({
   key,
-  currentPage,
   headerLogs,
   fullPath,
   terminalContent,
   footerLogs,
   commandTag,
   command,
+  comandTagPath,
 }) => {
   return (
     <AnimatePresence mode="wait">
@@ -36,7 +36,11 @@ const TerminalProcessMode = ({
         initial="hidden"
         animate="visible"
       >
-        <TerminalCommand tag={commandTag} command={command} />
+        <TerminalCommand
+          tag={commandTag}
+          command={command}
+          tagPath={comandTagPath}
+        />
         <TerminalProcess
           logs={headerLogs}
           fullPath={fullPath}
@@ -50,6 +54,7 @@ const TerminalProcessMode = ({
           tag={commandTag}
           showCursor={true}
           animateItem={item}
+          tagPath={comandTagPath}
         />
       </motion.div>
     </AnimatePresence>
