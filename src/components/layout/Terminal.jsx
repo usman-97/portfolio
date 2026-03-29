@@ -28,7 +28,7 @@ const Terminal = ({ activeFile }) => {
       <TerminalHeader />
       <TerminalBody
         key={location.pathname}
-        content={content.terminalContent}
+        content={content?.terminalContent}
         commandTag={commandTag}
         comandTagPath={commandTagPath}
         fullPath={fullPath}
