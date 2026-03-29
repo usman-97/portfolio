@@ -1,3 +1,6 @@
+import { ContactBody } from "../../constants/TerminalProcessBody";
+import { IoSend } from "react-icons/io5";
+
 export const contactContent = {
   content: `/* Status: Open for collaborations */
 .engineer-contact {
@@ -14,33 +17,25 @@ export const contactContent = {
 export const terminalContactContent = {
   logs: [
     {
-      text: "contact --fetch --all",
+      text: "contact --init-form --force",
       type: "COMMAND",
-    },
-    {
-      tag: "[INFO]",
-      text: "Initializing SMTP_REACH_PROTOCOL...",
-      type: "PROCESS",
-    },
-    {
-      tag: "[PROCESS]",
-      text: "Searching for route to @usman-port...",
-      type: "PROCESS",
     },
     {
       tag: "[SUCCESS]",
       text: "200 OK: Mail-Server found.",
       type: "PROCESS",
     },
-    { content: "", type: "BODY" },
     {
-      tag: "[STATUS]",
-      text: "Listening for incoming pings on port 8080...",
+      tag: "[IO]",
+      text: "Awaiting user input stream...",
+      status: "[STDIN]",
       type: "PROCESS",
     },
+    { component: ContactBody, type: "BODY" },
     {
-      tag: "[READY]",
-      text: "System idle. Click a link to execute.",
+      tag: "[SUCCESS]",
+      text: "Your message has been sent to Usman's inbox.",
+      component: IoSend,
       type: "PROCESS",
     },
     {

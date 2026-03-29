@@ -15,7 +15,7 @@ const TerminalProcess = ({ content, animateItem, tag, tagPath, ...props }) => {
             <motion.div
               key={rowKey}
               variants={animateItem}
-              custom={index} // Only needed if you use the manual delay fix
+              custom={index}
               className="flex flex-col"
             >
               {type === "BODY" ? (
@@ -34,6 +34,7 @@ const TerminalProcess = ({ content, animateItem, tag, tagPath, ...props }) => {
                   status={row.status}
                   fullPath={props.fullPath}
                   animateItem={animateItem}
+                  Component={BodyComponent}
                 />
               ) : type === "COMMAND" ? (
                 <TerminalCommand

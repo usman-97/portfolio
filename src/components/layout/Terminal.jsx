@@ -44,7 +44,7 @@ const Terminal = ({ activeFile }) => {
       className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3"
       onClick={() => inputRef?.current.focus()}
     >
-      <div className="flex items-start shrink-0 space-x-10 pl-5 pt-1 bg-midnight border-b border-steel">
+      <div className="flex items-start shrink-0 space-x-10 pl-5 pt-1 bg-midnight border-b border-steel font-sans">
         <span className="text-silver/50">Terminal</span>
         <div className="flex items-center space-x-3 border-b-3 border-emerald">
           <span className="pl-2">Local</span>
@@ -54,7 +54,7 @@ const Terminal = ({ activeFile }) => {
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname}
-          className="flex-col flex-1 space-y-1 p-3 text-xs"
+          className="flex-col flex-1 space-y-1 p-3 text-xs font-mono"
           variants={container}
           initial="hidden"
           animate="visible"

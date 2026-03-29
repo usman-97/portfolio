@@ -22,4 +22,13 @@ export const HomeBody = () => (
   </>
 );
 
-export const ContactBody = () => {};
+export const ContactBody = () => (
+  <div className="flex flex-col text-sm space-y-1">
+    <p>Do you want to contact Usman? (Y/N): </p>
+    <div className="flex flex-col p-2 space-y-1">
+      <p>Enter your name: _</p>
+      <p>Enter your email: _</p>
+      <p>Enter your message: _</p>
+    </div>
+  </div>
+);
