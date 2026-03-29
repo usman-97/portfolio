@@ -9,6 +9,7 @@ export const contactContent = {
     gitHub: "usman-97"
 }`,
   contactLinks: {
+    email: "usmanshabir65@hotmail.com",
     linkedIn: "https://www.linkedin.com/in/usman-shabir-kousar/",
     gitHub: "https://github.com/usman-97",
   },
