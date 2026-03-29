@@ -1,16 +1,55 @@
-import LogLine from "./LogLine";
 import { motion } from "motion/react";
+import TerminalCommand from "./TerminalCommand";
+import LogLine from "./LogLine";
 
-const TerminalProcess = ({ logs, animateItem, ...props }) => {
+const TerminalProcess = ({ content, animateItem, tag, tagPath, ...props }) => {
   return (
-    <motion.div className="flex flex-col space-y-1 pb-2 pl-5">
-      {logs.map((logLine) => (
-        <LogLine
-          logLine={logLine}
-          fullPath={props.fullPath}
-          animateItem={animateItem}
-        />
-      ))}
+    <motion.div className="flex flex-col space-y-1">
+      {content?.logs &&
+        content.logs.map((row, index) => {
+          const type = row?.type || "PROCESS";
+          const rowKey = `terminal-row-${type}-${index}`;
+          const BodyComponent = row.component;
+
+          return (
+            <motion.div
+              key={rowKey}
+              variants={animateItem}
+              custom={index} // Only needed if you use the manual delay fix
+              className="flex flex-col"
+            >
+              {type === "BODY" ? (
+                <motion.div
+                  key={rowKey}
+                  className="space-y-2 pb-2"
+                  variants={animateItem}
+                >
+                  {BodyComponent && <BodyComponent />}
+                </motion.div>
+              ) : type === "PROCESS" ? (
+                <LogLine
+                  key={rowKey}
+                  tag={row.tag}
+                  text={row.text}
+                  status={row.status}
+                  fullPath={props.fullPath}
+                  animateItem={animateItem}
+                />
+              ) : type === "COMMAND" ? (
+                <TerminalCommand
+                  key={rowKey}
+                  tag={tag}
+                  tagPath={tagPath}
+                  command={row.text}
+                  animateItem={animateItem}
+                  showCursor={row.active}
+                />
+              ) : (
+                <span key={rowKey}></span>
+              )}
+            </motion.div>
+          );
+        })}
     </motion.div>
   );
 };

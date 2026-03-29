@@ -12,8 +12,8 @@ const ContactPage = () => {
 
   return (
     <CodeSyntaxHighlighter
-      language={fileContents["Contact.css"].language}
-      codeString={fileContents["Contact.css"].content.content}
+      language={fileContents["contact.css"].language}
+      codeString={fileContents["contact.css"].content.content}
       style={emeraldSyntaxTheme}
       customStyle={{
         ...EDITOR_CONTAINER_STYLE,

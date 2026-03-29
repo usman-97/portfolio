@@ -1,16 +1,18 @@
 import { motion } from "motion/react";
 
-const LogLine = ({ logLine, animateItem, ...props }) => {
+const LogLine = ({ tag, text, status, animateItem, textStyle, ...props }) => {
   const logLineWithFullPath = props.fullPath
-    ? logLine.text.replace("{path}", props.fullPath)
-    : logLine.text;
+    ? text?.replace("{path}", props.fullPath)
+    : text;
   return (
     <motion.p variants={animateItem} className="md:flex md:space-x-1">
-      <span className="text-forest">{logLine.tag ? logLine.tag : ""}</span>
-      <span className="text-silver/40">{logLineWithFullPath} </span>
-      <span className="text-forest">
-        {logLine.status ? logLine.status : ""}
-      </span>
+      {tag && <span className="text-forest">{tag}</span>}
+      {logLineWithFullPath && (
+        <span className={textStyle ? textStyle : `text-silver/40`}>
+          {logLineWithFullPath}
+        </span>
+      )}
+      {status && <span className="text-forest">{status}</span>}
     </motion.p>
   );
 };

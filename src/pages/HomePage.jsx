@@ -8,7 +8,6 @@ import {
 } from "../constants/editorStyles";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 import { motion } from "motion/react";
-import { useState, useEffect } from "react";
 import { useMobile } from "../hooks/useMobile";
 
 const HomePage = () => {

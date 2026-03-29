@@ -21,3 +21,5 @@ export const HomeBody = () => (
     <div className="w-full border-b border-dashed border-forest/50"></div>
   </>
 );
+
+export const ContactBody = () => {};
