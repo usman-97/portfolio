@@ -14,7 +14,13 @@ const SideNavBar = ({ setActiveFile }) => {
         {navItems.map((item) => {
           const isActive = item.route && item.route === location.pathname;
           if (isActive) {
-            setActiveFile(item.name);
+            let activeFile = item.name;
+            if (item.type === "file" && item.parentId !== 2) {
+              const parentId = item.parentId;
+              const parentItem = navItems.find((i) => i.id === parentId);
+              activeFile = parentItem.name;
+            }
+            setActiveFile(activeFile);
           }
 
           return (
