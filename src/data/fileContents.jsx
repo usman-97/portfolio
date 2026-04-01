@@ -20,6 +20,8 @@ export const fileContents = {
       name: "Simple Weather App",
       language: "markdown",
       image: simpleWeatherApp,
+      demoLink: "https://simple-weather-app-ashy-six.vercel.app/",
+      sourceLink: "https://github.com/usman-97/simple-weather-app",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec molestie risus. Nunc sed nisl aliquam, volutpat est in, pretium tellus. Aenean ac blandit lorem. Aenean tincidunt elementum odio in porta. Donec et fringilla purus, vitae cursus tortor. Vestibulum convallis ligula tellus, in ullamcorper sapien ullamcorper eget. Duis vestibulum eleifend enim non blandit. Nunc dignissim aliquam tempus. In ac urna hendrerit, ornare mi quis, feugiat risus. Nulla porttitor lacus non augue lobortis bibendum at rutrum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus.`,
       challenge: `Donec finibus vitae purus a vestibulum. Integer et euismod metus.
               Suspendisse scelerisque feugiat est. Orci varius natoque penatibus

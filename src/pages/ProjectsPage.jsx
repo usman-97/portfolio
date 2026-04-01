@@ -22,11 +22,15 @@ const ProjectsPage = () => {
               backgroundColour="bg-forest"
               colour="text-silver"
               icon={<MdLiveTv size={20} />}
+              link={content.demoLink}
+              label="Demo"
             />
             <CustomButton
               backgroundColour="bg-silver"
               colour="text-forest"
               icon={<FaGithub size={20} className="text-forest" />}
+              link={content.sourceLink}
+              label="Source"
             />
           </div>
         </div>
