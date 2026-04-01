@@ -65,3 +65,9 @@
   --color-forest: #008f5d;
   --color-silver: #e0e6ed;
 }
+
+button:hover {
+  border-color: #008f5d;
+  color: #008f5d;
+  box-shadow: 0 0 10px rgba(0, 143, 93, 0.2);
+}

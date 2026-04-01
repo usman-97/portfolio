@@ -20,17 +20,18 @@ const ProjectsPage = () => {
           <div className="flex justify-evenly items-center">
             <CustomButton
               backgroundColour="bg-forest"
-              colour="text-silver"
-              icon={<MdLiveTv size={20} />}
+              colour="text-obsidian"
+              icon={<MdLiveTv size={20} className="text-obsidian" />}
               link={content.demoLink}
               label="Demo"
             />
             <CustomButton
-              backgroundColour="bg-silver"
-              colour="text-forest"
-              icon={<FaGithub size={20} className="text-forest" />}
+              backgroundColour="bg-obsidian"
+              colour="text-silver"
+              icon={<FaGithub size={20} className="text-silver" />}
               link={content.sourceLink}
               label="Source"
+              border="border border-silver"
             />
           </div>
         </div>
