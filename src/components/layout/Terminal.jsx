@@ -5,9 +5,12 @@ import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";
 
-const Terminal = ({ activeFile }) => {
+const Terminal = ({ activeFile, setHideTerminal }) => {
   const content = fileContents[activeFile];
   const location = useLocation();
+  console.log(content);
+  const hideTerminal = content?.hideTerminal;
+  setHideTerminal(hideTerminal);
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
@@ -24,16 +27,18 @@ const Terminal = ({ activeFile }) => {
   const commandTagPath = "~" + activeFileParentDirectory + "$";
 
   return (
-    <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
-      <TerminalHeader />
-      <TerminalBody
-        key={location.pathname}
-        content={content?.terminalContent}
-        commandTag={commandTag}
-        comandTagPath={commandTagPath}
-        fullPath={fullPath}
-      />
-    </section>
+    !hideTerminal && (
+      <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
+        <TerminalHeader />
+        <TerminalBody
+          key={location.pathname}
+          content={content?.terminalContent}
+          commandTag={commandTag}
+          comandTagPath={commandTagPath}
+          fullPath={fullPath}
+        />
+      </section>
+    )
   );
 };
 
