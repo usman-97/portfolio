@@ -6,7 +6,7 @@ import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer className="col-start-1 col-end-4 bg-midnight">
-      <div className="flex justify-between items-center pr-3 pl-12 bg-steel text-silver/60">
+      <div className="flex flex-col justify-between items-center pr-3 pl-12 bg-steel text-silver/60 md:flex-row">
         <div className="flex space-x-6 py-2 text-sm bg-steel">
           <div className="flex items-center space-x-2">
             <FaCodeBranch className="text-teal-400" />
@@ -23,7 +23,7 @@ const Footer = () => {
             <IoWarning className="text-amber-400" />
           </div>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 mb-1 md:mb-0">
           <FaLocationDot size={12} />
           <p>Manchester, UK ({getZoneTime("Europe/London")})</p>
         </div>

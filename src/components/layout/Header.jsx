@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="col-span-3 bg-steel text-silver font-sans md:pl-14">
       <div className="flex justify-between items-center">
-        <h1 className="text-silver! font-bold tracking-wider">
+        <h1 className="pl-2 text-silver! font-bold tracking-wider md:pl-0">
           Project - Portfolio
         </h1>
         <form className="hidden md:block md:py-2">
