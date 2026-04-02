@@ -7,18 +7,18 @@ const Footer = () => {
       <div className="flex justify-between items-center pr-3 pl-12 bg-steel text-silver/60">
         <div className="flex space-x-6 py-2 text-sm bg-steel">
           <div className="flex items-center space-x-2">
-            <FaCodeBranch />
+            <FaCodeBranch className="text-teal-400" />
             <p>main *</p>
           </div>
           <div className="border-r"></div>
           <div className="flex items-center space-x-2">
             <p>0</p>
-            <IoCloseCircle />
+            <IoCloseCircle className="text-red-400" />
           </div>
           <div className="border-r"></div>
           <div className="flex items-center space-x-2">
             <p>0</p>
-            <IoWarning />
+            <IoWarning className="text-amber-400" />
           </div>
         </div>
         <p>Manchester, UK (20:01)</p>
