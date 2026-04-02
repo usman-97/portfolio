@@ -52,7 +52,13 @@ const ProjectsPage = () => {
               />
             </div>
           </div>
-          <p>{content.description}</p>
+          <motion.p
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {content.description}
+          </motion.p>
           <BulletPointList title="Key Features" list={content?.features} />
         </div>
       </div>
