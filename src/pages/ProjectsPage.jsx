@@ -3,18 +3,14 @@ import { fileContents } from "../data/fileContents";
 import { MdLiveTv } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import CustomButton from "../components/CustomButton";
-import Badge from "../components/Badge";
+import TechStack from "../components/layout/projects/TechStack";
+import { motion } from "motion/react";
+import BulletPointList from "../components/layout/BulletPointList";
 
 const ProjectsPage = () => {
   const { projectId } = useParams();
   const generalContent = fileContents?.projects;
   const content = generalContent?.[projectId];
-
-  const getRandomStyle = () => {
-    const colourList = generalContent?.colourPool;
-    const colour = colourList?.[Math.floor(Math.random() * colourList.length)];
-    return colour;
-  };
 
   return (
     <div className="flex flex-col gap-3 mx-14 mt-5 font-sans">
@@ -23,34 +19,20 @@ const ProjectsPage = () => {
       </h2>
       <div className="flex space-x-8">
         <div className="flex flex-col space-y-6 w-full">
-          <img src={content.image} alt={content.name} className="rounded-lg" />
+          <motion.img
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+            src={content.image}
+            alt={content.name}
+            className="rounded-lg"
+          />
         </div>
         <div className="flex flex-col space-y-3 text-[16px]">
           <div className="flex justify-between">
-            <div className="flex flex-wrap gap-3 mb-3">
-              {content?.techStack.map((stack, i) => {
-                return (
-                  <div key={i} className="flex flex-col gap-2">
-                    <span className="text-xs text-center uppercase">
-                      {stack.area}
-                    </span>
-                    {stack.tech.map((tech, j) => {
-                      const badgeColour = getRandomStyle();
-                      return (
-                        <Badge
-                          key={j}
-                          text={tech}
-                          bg={badgeColour?.bg}
-                          border={badgeColour?.border}
-                          pulse={badgeColour?.pulse}
-                          colour={badgeColour?.text}
-                        />
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
+            <TechStack
+              techStack={content?.techStack}
+              colourList={generalContent?.colourPool}
+            />
             <div className="flex justify-end gap-8">
               <CustomButton
                 backgroundColour="bg-forest"
@@ -71,19 +53,7 @@ const ProjectsPage = () => {
             </div>
           </div>
           <p>{content.description}</p>
-          <div className="flex flex-col gap-2">
-            <h3>Key Features</h3>
-            <ul className="ml-5 list-disc list-outside space-y-2">
-              {content?.features.map((feature, i) => {
-                return (
-                  <li className="">
-                    <span className="font-semibold">{feature.feature}: </span>
-                    <span>{feature.detail}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <BulletPointList title="Key Features" list={content?.features} />
         </div>
       </div>
     </div>

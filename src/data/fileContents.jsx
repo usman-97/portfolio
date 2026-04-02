@@ -31,22 +31,22 @@ export const fileContents = {
       description: `As the name suggests it's a simple weather web app which allows users to search and view weather information by city or place name. It's a Full-Stack application featuring React-based frontend and a SpringBoot backend. The SpringBoot RESTful API acts as a middleware between WeatherAPI and React frontend. In addition a JWT (JSON Web Token) authentication is implemented to secure communication between client and server.`,
       features: [
         {
-          feature: "Location Search",
+          point: "Location Search",
           detail:
             "A dynamic input field that allows users to find weather data for any city globally.",
         },
         {
-          feature: "Real-Time Statistics",
+          point: "Real-Time Statistics",
           detail:
             'Displaying essential variables like temperature, "feels like" conditions, humidity, and wind speed',
         },
         {
-          feature: "Visual Context",
+          point: "Visual Context",
           detail:
             'Using icons (sun, clouds, rain) and dynamic backgrounds that change based on the weather or time of day to provide instant "mood" feedback.',
         },
         {
-          feature: "Responsive Layout",
+          point: "Responsive Layout",
           detail:
             "Ensuring the data is just as readable on a small mobile screen as it is on a desktop monitor",
         },
