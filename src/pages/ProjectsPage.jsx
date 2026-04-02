@@ -35,10 +35,23 @@ const ProjectsPage = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col space-y-3 text-[16px]">
           <p>{content.description}</p>
-          <Section heading="Challenge" text={content.challenge} />
-          <Section heading="Solution" text={content.solution} />
+          <div className="flex flex-col gap-2">
+            <h3>Key Features</h3>
+            <ul className="ml-5 list-disc list-outside space-y-2">
+              {content?.features.map((feature, i) => {
+                return (
+                  <li className="">
+                    <span className="font-semibold">{feature.feature}: </span>
+                    <span>{feature.detail}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          {/* <Section heading="Challenge" text={content.challenge} />
+          <Section heading="Solution" text={content.solution} /> */}
         </div>
       </div>
     </div>
