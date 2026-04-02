@@ -8,7 +8,6 @@ import TerminalBody from "./terminal/TerminalBody";
 const Terminal = ({ activeFile, setHideTerminal }) => {
   const content = fileContents[activeFile];
   const location = useLocation();
-  console.log(content);
   const hideTerminal = content?.hideTerminal;
   setHideTerminal(hideTerminal);
   const currentPageItem = navItems.find(
