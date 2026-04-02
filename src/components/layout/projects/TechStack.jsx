@@ -20,12 +20,12 @@ const TechStack = ({ techStack, colourList }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-3 mb-3">
+    <div className="flex flex-col gap-3 mb-3 md:flex-row md:flex-wrap">
       {techStack.map((stack, i) => {
         return (
           <motion.div
             key={i}
-            className="flex flex-col gap-2"
+            className="flex flex-wrap gap-2 md:flex-col"
             variants={container}
             initial="hidden"
             animate="visible"

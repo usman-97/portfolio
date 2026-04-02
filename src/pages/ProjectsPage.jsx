@@ -13,12 +13,12 @@ const ProjectsPage = () => {
   const content = generalContent?.[projectId];
 
   return (
-    <div className="flex flex-col gap-3 mx-14 mt-5 font-sans">
-      <h2 className="pb-1 text-emerald text-3xl font-extrabold border-b border-emerald/60">
+    <div className="flex flex-col gap-3 mx-5 mt-5 pb-5 font-sans md:mx-14 md:pb-0">
+      <h2 className="pb-1 text-emerald text-lg font-extrabold border-b border-emerald/60 md:text-3xl">
         {content.name}
       </h2>
-      <div className="flex space-x-8">
-        <div className="flex flex-col space-y-6 w-full">
+      <div className="flex md:space-x-8">
+        <div className="hidden flex-col space-y-6 w-full md:flex">
           <motion.img
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
@@ -28,12 +28,12 @@ const ProjectsPage = () => {
           />
         </div>
         <div className="flex flex-col space-y-3 text-[16px]">
-          <div className="flex justify-between">
+          <div className="flex flex-col items-start gap-3 md:flex-row md:justify-between md:items-stretch md:gap-0">
             <TechStack
               techStack={content?.techStack}
               colourList={generalContent?.colourPool}
             />
-            <div className="flex justify-end gap-8">
+            <div className="flex gap-8 justify-end">
               <CustomButton
                 backgroundColour="bg-forest"
                 colour="text-obsidian"
