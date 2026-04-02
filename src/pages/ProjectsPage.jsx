@@ -51,13 +51,14 @@ const ProjectsPage = () => {
                 );
               })}
             </div>
-            <div className="flex justify-end gap-5">
+            <div className="flex justify-end gap-8">
               <CustomButton
                 backgroundColour="bg-forest"
                 colour="text-obsidian"
                 icon={<MdLiveTv size={20} className="text-obsidian" />}
                 link={content.demoLink}
                 label="Demo"
+                border="border border-forest"
               />
               <CustomButton
                 backgroundColour="bg-obsidian"
