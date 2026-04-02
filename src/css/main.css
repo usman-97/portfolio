@@ -66,15 +66,6 @@
   --color-silver: #e0e6ed;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #00ff9d;
-}
-
 button:hover {
   border-color: #008f5d;
   color: #008f5d;
