@@ -1,16 +1,58 @@
-# React + Vite
+# 💻 Developer Workspace Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, interactive IDE-themed portfolio designed to mimic the workflow and aesthetics of a professional development environment. Built with **React**, **Tailwind CSS**, and **Framer Motion**.
 
-Currently, two official plugins are available:
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://[YOUR-VERCEL-URL].vercel.app)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](#)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**[View Live Project](https://[YOUR-VERCEL-URL].vercel.app)**
 
-## Expanding the ESLint configuration
+## ✨ System Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Integrated File Explorer:** A recursive sidebar navigation system with active-route detection and folder/file state management.
+- **Synchronized Terminal:** A dynamic terminal component that updates its context and file paths based on the currently "open" editor file.
+- **Responsive Workspace:** Fully adaptive grid layout using a custom `useMobile` hook and an IDE-style burger navigation.
+- **Developer Aesthetics:** Custom VS Code-inspired status bar, Git branch indicators (`main *`), and emerald-accented UI.
+- **Advanced Animations:** Framer Motion-powered page transitions, slide-in mobile menus, and staggered tech-stack badges.
+
+## 🏗️ Technical Stack
+
+| Category       | Tools                                       |
+| :------------- | :------------------------------------------ |
+| **Frontend**   | React 18, Vite                              |
+| **Styling**    | Tailwind CSS                                |
+| **Animation**  | Framer Motion                               |
+| **Icons**      | Lucide React, React Icons (RxHamburgerMenu) |
+| **Routing**    | React Router Dom v6                         |
+| **Deployment** | Vercel                                      |
+
+## 📂 Project Structure
+
+```text
+.
+├── public/             # Static assets (Favicons, images)
+├── src/
+│   ├── animation/      # Framer Motion variants & animation logic
+│   ├── assets/         # Imported media and icon assets
+│   ├── components/     # Reusable UI (Header, Footer, TreeItem)
+│   ├── constants/      # App data (navItems, tech stack, badge colors)
+│   ├── css/            # Global styles and Tailwind directives
+│   ├── data/           # Static JSON/data objects
+│   ├── hooks/          # Custom hooks (useMobile.jsx)
+│   ├── layouts/        # BaseLayout (Grid & Workspace State)
+│   ├── pages/          # Individual View components (Home, Projects)
+│   ├── router/         # React Router configuration
+│   ├── themes/         # Color palettes and theme configurations
+│   ├── utility/        # Logic helpers (navigationUtils.js)
+│   ├── App.jsx         # Root component
+│   └── main.jsx        # Entry point
+├── index.html          # HTML template & Meta tags
+├── vercel.json         # Vercel deployment & rewrite rules
+└── package.json        # Dependencies and scripts
+```
