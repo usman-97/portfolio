@@ -66,6 +66,15 @@
   --color-silver: #e0e6ed;
 }
 
+html,
+body,
+#root {
+  background-color: #0d0d0d; /* Use your exact "Midnight" or Black hex here */
+  color: #e0e6ed;
+  margin: 0;
+  padding: 0;
+}
+
 .button:hover {
   border-color: #008f5d;
   color: #008f5d;
