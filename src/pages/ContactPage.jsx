@@ -16,10 +16,7 @@ const ContactPage = () => {
       language={content?.language}
       codeString={content?.content?.content}
       style={emeraldSyntaxTheme}
-      customStyle={{
-        ...EDITOR_CONTAINER_STYLE,
-        fontSize: isMobile ? "12px" : "1.5rem",
-      }}
+      customStyle={EDITOR_CONTAINER_STYLE}
       showLineNumbers={false}
       lineNumberStyle={LINE_NUMBER_STYLE}
       renderer={({ rows, stylesheet }) => {
@@ -49,8 +46,12 @@ const ContactPage = () => {
               style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
             >
               <div
-                className="flex items-center text-right pr-4 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
-                style={{ ...LINE_NUMBER_STYLE, minWidth: "3.5rem" }}
+                className="w-6 mr-2 select-none opacity-20 group-hover:opacity-50 transition-opacity border-r border-emerald-900/30"
+                style={{
+                  ...LINE_NUMBER_STYLE,
+                  minWidth: "3rem",
+                  marginLeft: "1rem",
+                }}
               >
                 {lineNumber}
               </div>

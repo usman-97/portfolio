@@ -33,7 +33,7 @@ const ProjectsPage = () => {
               techStack={content?.techStack}
               colourList={generalContent?.colourPool}
             />
-            <div className="flex gap-8 justify-end">
+            <div className="flex gap-8 justify-end self-center md:self-start">
               <CustomButton
                 backgroundColour="bg-forest"
                 colour="text-obsidian"

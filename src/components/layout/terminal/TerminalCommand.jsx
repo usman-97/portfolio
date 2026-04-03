@@ -9,7 +9,10 @@ const TerminalCommand = ({
   tagPath,
 }) => {
   return (
-    <motion.div className="flex items-center text-sm" variants={animateItem}>
+    <motion.div
+      className="flex items-center text-[10px] md:text-sm"
+      variants={animateItem}
+    >
       <LuChevronRight size={20} className="text-emerald/50" />
       <div className="flex space-x-1">
         <span className="text-emerald/50">{tag}</span>

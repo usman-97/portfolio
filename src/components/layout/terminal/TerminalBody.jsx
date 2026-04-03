@@ -27,7 +27,7 @@ const TerminalBody = ({
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
-        className="flex-col flex-1 space-y-1 p-3 text-xs font-mono"
+        className="flex-col flex-1 space-y-1 p-3 text-[10px] font-mono md:text-xs"
         variants={container}
         initial="hidden"
         animate="visible"

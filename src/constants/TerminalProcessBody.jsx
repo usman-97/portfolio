@@ -1,7 +1,7 @@
 export const HomeBody = () => (
   <>
     <div className="w-full border-b border-dashed border-forest/50"></div>
-    <p className="py-2 px-3 text-emerald text-shadow-emerald md:px-15 md:text-[1rem]">
+    <p className="py-2 px-3 text-emerald text-shadow-emerald text-xs md:px-15 md:text-[1rem]">
       Full Stack Software Engineer here who is passionate about building things
       that live on the internet. I believe the best code is the one... well, the
       one which tells a story which is clean, efficient and solves a problem and
