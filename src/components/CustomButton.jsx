@@ -17,7 +17,7 @@ const CustomButton = ({
         className={`flex items-center justify-center gap-1 py-3 px-5 button ${backgroundColour} rounded-sm cursor-pointer ${border} transition-all ${duration} ${hoverStyle} ${activeStyle}`}
       >
         <span className="mb-1 shrink-0">{icon}</span>
-        <a className={`text-lg font-semibold ${colour}`}>{label}</a>
+        <span className={`text-lg font-semibold ${colour}`}>{label}</span>
       </button>
     </Link>
   );
