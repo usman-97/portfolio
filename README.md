@@ -49,7 +49,7 @@ A high-fidelity, interactive IDE-themed portfolio designed to mimic the workflow
 │   ├── pages/          # Individual View components (Home, Projects)
 │   ├── router/         # React Router configuration
 │   ├── themes/         # Color palettes and theme configurations
-│   ├── utility/        # Logic helpers (navigationUtils.js)
+│   ├── utils/          # Helper functions (navigationUtils.js)
 │   ├── App.jsx         # Root component
 │   └── main.jsx        # Entry point
 ├── index.html          # HTML template & Meta tags
