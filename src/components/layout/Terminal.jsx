@@ -27,7 +27,7 @@ const Terminal = ({ activeFile, setHideTerminal }) => {
 
   useEffect(() => {
     setHideTerminal(hideTerminal);
-  }, [hideTerminal]);
+  }, [activeFile]);
 
   return (
     !hideTerminal && (
