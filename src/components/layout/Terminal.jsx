@@ -4,12 +4,12 @@ import { getBreadcrumbStack } from "../../utility/Location";
 import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";
+import { useEffect } from "react";
 
 const Terminal = ({ activeFile, setHideTerminal }) => {
   const content = fileContents[activeFile];
   const location = useLocation();
   const hideTerminal = content?.hideTerminal;
-  setHideTerminal(hideTerminal);
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
@@ -24,6 +24,10 @@ const Terminal = ({ activeFile, setHideTerminal }) => {
   const activeFileParentDirectory = fullPath.replace("/" + activeFile, "");
   const commandTag = "guest@profile:";
   const commandTagPath = "~" + activeFileParentDirectory + "$";
+
+  useEffect(() => {
+    setHideTerminal(hideTerminal);
+  }, [hideTerminal]);
 
   return (
     !hideTerminal && (
