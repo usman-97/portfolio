@@ -7,10 +7,14 @@ import Terminal from "../components/layout/Terminal";
 import { useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMobile } from "../hooks/useMobile";
+import { navItems } from "../data/navigation";
+import { getActiveFileFromPath } from "../utility/navigationUtil";
 
 const BaseLayout = () => {
   const isMobile = useMobile();
-  const [activeFile, setActiveFile] = useState("");
+  const [activeFile, setActiveFile] = useState(() =>
+    getActiveFileFromPath(window.location.pathname, navItems),
+  );
   const [hideTerminal, setHideTerminal] = useState(false);
   const [showNavbar, setShowNavbar] = useState(!isMobile);
 
