@@ -1,6 +1,6 @@
 import { FaCodeBranch } from "react-icons/fa";
 import { IoCloseCircle, IoWarning } from "react-icons/io5";
-import { getZoneTime, getYear } from "../../utility/dateUtil";
+import { getZoneTime, getYear } from "../../utils/dateUtil";
 import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {

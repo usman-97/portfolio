@@ -1,6 +1,6 @@
 import { fileContents } from "../../data/fileContents";
 import { useLocation } from "react-router-dom";
-import { getBreadcrumbStack } from "../../utility/Location";
+import { getBreadcrumbStack } from "../../utils/Location";
 import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";

@@ -8,7 +8,7 @@ import { useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMobile } from "../hooks/useMobile";
 import { navItems } from "../data/navigation";
-import { getActiveFileFromPath } from "../utility/navigationUtil";
+import { getActiveFileFromPath } from "../utils/navigationUtil";
 
 const BaseLayout = () => {
   const isMobile = useMobile();

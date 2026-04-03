@@ -1,7 +1,7 @@
 import { LuChevronRight } from "react-icons/lu";
 import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
-import { getBreadcrumbStack } from "../../utility/Location";
+import { getBreadcrumbStack } from "../../utils/Location";
 import { ICON_MAP } from "../../constants/IconRegistry";
 
 const Breadcrumb = () => {
