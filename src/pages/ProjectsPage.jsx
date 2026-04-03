@@ -13,7 +13,7 @@ const ProjectsPage = () => {
   const content = generalContent?.[projectId];
 
   return (
-    <div className="flex flex-col gap-3 mx-5 mt-5 pb-5 font-sans md:mx-14 md:pb-0">
+    <div className="flex flex-col gap-3 mx-5 mt-5 pb-5 font-sans md:mx-14">
       <h2 className="pb-1 text-emerald text-lg font-extrabold border-b border-emerald/60 md:text-3xl">
         {content.name}
       </h2>
