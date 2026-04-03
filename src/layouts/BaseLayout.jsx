@@ -4,19 +4,23 @@ import Header from "../components/layout/Header";
 import LeftPanel from "../components/layout/LeftPanel";
 import SideNavBar from "../components/layout/SideNavBar";
 import Terminal from "../components/layout/Terminal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMobile } from "../hooks/useMobile";
 import { navItems } from "../data/navigation";
 import { getActiveFileFromPath } from "../utils/navigationUtil";
 
 const BaseLayout = () => {
-  const isMobile = useMobile();
+  const isMobile = useMobile(768);
   const [activeFile, setActiveFile] = useState(() =>
     getActiveFileFromPath(window.location.pathname, navItems),
   );
   const [hideTerminal, setHideTerminal] = useState(false);
   const [showNavbar, setShowNavbar] = useState(!isMobile);
+
+  useEffect(() => {
+    setShowNavbar(!isMobile);
+  }, [isMobile]);
 
   return (
     <>
