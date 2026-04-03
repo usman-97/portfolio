@@ -18,7 +18,7 @@ const ProjectsPage = () => {
         {content.name}
       </h2>
       <div className="flex md:space-x-8">
-        <div className="hidden flex-col space-y-6 w-full md:flex">
+        <div className="hidden flex-col space-y-6 w-full lg:flex">
           <motion.img
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
