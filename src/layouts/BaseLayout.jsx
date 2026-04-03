@@ -23,7 +23,11 @@ const BaseLayout = () => {
       <div className="text-silver overflow-hidden min-h-screen lg:grid lg:grid-cols-[3rem_20rem_1fr] lg:grid-rows-[auto_auto_1fr_8rem] 2xl:grid-rows-[3rem_25rem_25rem_8rem]">
         <Header showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
         <LeftPanel />
-        <SideNavBar setActiveFile={setActiveFile} showNavbar={showNavbar} />
+        <SideNavBar
+          setActiveFile={setActiveFile}
+          showNavbar={showNavbar}
+          setShowNavbar={setShowNavbar}
+        />
         <Editor hideTerminal={hideTerminal}>
           <Outlet />
         </Editor>
