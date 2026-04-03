@@ -1,9 +1,24 @@
 import TreeItem from "./nav/TreeItem";
 import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const SideNavBar = ({ setActiveFile, showNavbar = true }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    const activeItem = navItems.find(
+      (item) => item.route === location.pathname,
+    );
+    if (activeItem) {
+      let fileName = activeItem.name;
+      if (activeItem.type === "file" && activeItem.parentId !== 2) {
+        const parentItem = navItems.find((i) => i.id === activeItem.parentId);
+        if (parentItem) fileName = parentItem.name;
+      }
+      setActiveFile(fileName);
+    }
+  }, [location.pathname, setActiveFile]);
 
   return (
     showNavbar && (
@@ -13,17 +28,6 @@ const SideNavBar = ({ setActiveFile, showNavbar = true }) => {
         </div>
         <div className="mt-2 text-sm">
           {navItems.map((item) => {
-            const isActive = item.route && item.route === location.pathname;
-            if (isActive) {
-              let activeFile = item.name;
-              if (item.type === "file" && item.parentId !== 2) {
-                const parentId = item.parentId;
-                const parentItem = navItems.find((i) => i.id === parentId);
-                activeFile = parentItem.name;
-              }
-              setActiveFile(activeFile);
-            }
-
             return (
               <TreeItem
                 key={item.id}
