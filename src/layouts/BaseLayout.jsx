@@ -10,7 +10,7 @@ import { useMobile } from "../hooks/useMobile";
 
 const BaseLayout = () => {
   const isMobile = useMobile();
-  const [activeFile, setActiveFile] = useState("Home.jsx");
+  const [activeFile, setActiveFile] = useState("");
   const [hideTerminal, setHideTerminal] = useState(false);
   const [showNavbar, setShowNavbar] = useState(!isMobile);
 
