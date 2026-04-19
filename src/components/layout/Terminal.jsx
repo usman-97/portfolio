@@ -5,11 +5,13 @@ import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";
 import { useEffect } from "react";
+import { useContentContext } from "../../contexts/ContentContext";
 
 const Terminal = ({ activeFile, setHideTerminal }) => {
-  const content = fileContents[activeFile];
+  const { files, loading } = useContentContext();
+  const content = files[activeFile];
   const location = useLocation();
-  const hideTerminal = content?.hideTerminal;
+  const showTerminal = content?.showTerminal;
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
@@ -26,16 +28,16 @@ const Terminal = ({ activeFile, setHideTerminal }) => {
   const commandTagPath = "~" + activeFileParentDirectory + "$";
 
   useEffect(() => {
-    setHideTerminal(hideTerminal);
+    setHideTerminal(!showTerminal);
   }, [activeFile]);
 
   return (
-    !hideTerminal && (
+    showTerminal && (
       <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
         <TerminalHeader />
         <TerminalBody
           key={location.pathname}
-          content={content?.terminalContent}
+          content={content?.terminal}
           commandTag={commandTag}
           comandTagPath={commandTagPath}
           fullPath={fullPath}
