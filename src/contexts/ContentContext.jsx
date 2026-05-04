@@ -23,7 +23,8 @@ export const ContentProvider = ({ children }) => {
 
     try {
       const query = `{
-        "home": *[_type == "homePage"][0]
+        "home": *[_type == "homePage"][0],
+        "contact": *[_type == "contactPage"][0]
     }`;
       const data = await client.fetch(query);
 
@@ -34,6 +35,13 @@ export const ContentProvider = ({ children }) => {
           terminal: data.home?.terminalLogs,
           language: data.home?.language,
           showTerminal: data.home?.showTerminal,
+          type: "EDITOR",
+        },
+        "contact.css": {
+          id: "contact",
+          content: data.contact?.editorContent,
+          language: data.contact?.language,
+          contactLinks: data.contact?.contactLinks,
           type: "EDITOR",
         },
       });

@@ -6,15 +6,17 @@ import CodeSyntaxHighlighter from "../themes/CodeSyntaxHighlighter";
 import { fileContents } from "../data/fileContents";
 import { emeraldSyntaxTheme } from "../themes/themes";
 import { useMobile } from "../hooks/useMobile";
+import { useContentContext } from "../contexts/ContentContext";
 
 const ContactPage = () => {
+  const { files, loading } = useContentContext();
   const isMobile = useMobile();
-  const content = fileContents["contact.css"];
+  const content = files["contact.css"];
 
   return (
     <CodeSyntaxHighlighter
       language={content?.language}
-      codeString={content?.content?.content}
+      codeString={content?.content}
       style={emeraldSyntaxTheme}
       customStyle={EDITOR_CONTAINER_STYLE}
       showLineNumbers={false}
@@ -28,14 +30,16 @@ const ContactPage = () => {
             )
             .join("");
 
+          const contactLinks = content?.contactLinks;
           const emailLink = lineText.includes("email")
-            ? "mailto:" + content?.content.contactLinks?.email
+            ? "mailto:" +
+              contactLinks?.find((item) => item.platform === "email")?.url
             : null;
           const linkedInLink = lineText.includes("linkedIn")
-            ? content?.content.contactLinks?.linkedIn
+            ? contactLinks?.find((item) => item.platform === "linkedIn")?.url
             : null;
           const gitHubLink = lineText.includes("gitHub")
-            ? content?.content.contactLinks?.gitHub
+            ? contactLinks?.find((item) => item.platform === "gitHub")?.url
             : null;
           const activeHref = emailLink || linkedInLink || gitHubLink;
 

@@ -1,11 +1,11 @@
 export default {
-  name: 'homePage',
-  title: 'Home Page',
+  name: 'contactPage',
+  title: 'Contact Page',
   type: 'document',
   fields: [
     {
       name: 'editorContent',
-      title: 'Home.jsx Editor Content',
+      title: 'contact.css Editor Content',
       type: 'text',
       description: 'The raw code string for the editor.'
     },
@@ -49,13 +49,27 @@ export default {
           ]
         }
       ]
+    },
+    {
+      name: 'contactLinks',
+      title: 'Social & External Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'platform', type: 'string', title: 'Platform Name (e.g. GitHub)' },
+            { name: 'url', type: 'string', title: 'URL' },
+          ]
+        }
+      ]
     }
   ],
   preview: {
     prepare() {
       return {
         title: 'Main Contact Content',
-        subtitle: 'Editor content and Terminal logs'
+        subtitle: 'Editor content and other content'
       }
     }
   }
