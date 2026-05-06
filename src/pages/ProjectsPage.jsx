@@ -13,7 +13,6 @@ const ProjectsPage = () => {
   const { projectId } = useParams();
   const { files, loading } = useContentContext();
   const content = files["projects"]?.projects[projectId];
-  console.log(files["projects"]?.projects[projectId]);
 
   return (
     content && (

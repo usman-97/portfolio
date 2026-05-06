@@ -3,13 +3,15 @@ import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
 import { getBreadcrumbStack } from "../../utils/location";
 import { ICON_MAP } from "../../constants/IconRegistry";
+import { useContentContext } from "../../contexts/ContentContext";
 
 const Breadcrumb = () => {
   const location = useLocation();
+  const { navItems } = useContentContext();
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
-  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.id, navItems);
+  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.route, navItems);
 
   return (
     <div className="flex items-center mt-1 ml-5 text-xs text-silver/50 cursor-pointer">

@@ -1,14 +1,15 @@
 import TreeItem from "./nav/TreeItem";
-import { navItems } from "../../data/navigation";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useMobile } from "../../hooks/useMobile";
 import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence } from "motion/react";
+import { useContentContext } from "../../contexts/ContentContext";
 
 const SideNavBar = ({ setActiveFile, showNavbar = true, setShowNavbar }) => {
   const location = useLocation();
   const isMobile = useMobile();
+  const { navItems } = useContentContext();
 
   useEffect(() => {
     const activeItem = navItems.find(
@@ -16,8 +17,8 @@ const SideNavBar = ({ setActiveFile, showNavbar = true, setShowNavbar }) => {
     );
     if (activeItem) {
       let fileName = activeItem.name;
-      if (activeItem.type === "file" && activeItem.parentId !== 2) {
-        const parentItem = navItems.find((i) => i.id === activeItem.parentId);
+      if (activeItem.type === "file" && activeItem.parentId !== "src") {
+        const parentItem = navItems.find((i) => i.name === activeItem.parentId);
         if (parentItem) fileName = parentItem.name;
       }
       setActiveFile(fileName);
@@ -56,7 +57,7 @@ const SideNavBar = ({ setActiveFile, showNavbar = true, setShowNavbar }) => {
             {navItems.map((item) => {
               return (
                 <TreeItem
-                  key={item.id}
+                  key={item.name}
                   item={item}
                   isActive={item.route && item.route === location.pathname}
                 />

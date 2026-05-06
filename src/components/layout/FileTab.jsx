@@ -1,9 +1,10 @@
 import { IoMdClose } from "react-icons/io";
 import { useLocation } from "react-router-dom";
-import { navItems } from "../../data/navigation";
+import { useContentContext } from "../../contexts/ContentContext";
 
 const FileTab = () => {
   const location = useLocation();
+  const { navItems } = useContentContext();
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );

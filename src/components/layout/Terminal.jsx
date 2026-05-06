@@ -1,7 +1,6 @@
 import { fileContents } from "../../data/fileContents";
 import { useLocation } from "react-router-dom";
 import { getBreadcrumbStack } from "../../utils/location";
-import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";
 import { useEffect } from "react";
@@ -12,10 +11,11 @@ const Terminal = ({ activeFile, setHideTerminal }) => {
   const content = files[activeFile];
   const location = useLocation();
   const showTerminal = content?.showTerminal;
+  const { navItems } = useContentContext();
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
-  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.id, navItems);
+  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.route, navItems);
   const fullPath =
     "/" +
     breadcrumbItems

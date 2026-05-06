@@ -17,6 +17,7 @@ export const useContentContext = () => {
 
 export const ContentProvider = ({ children }) => {
   const [files, setFiles] = useState({});
+  const [navItems, setNavItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchAllData = useCallback(async () => {
@@ -26,10 +27,13 @@ export const ContentProvider = ({ children }) => {
       const query = `{
         "home": *[_type == "homePage"][0],
         "contact": *[_type == "contactPage"][0],
-        "projects": *[_type == "project"] | order(order asc)
+        "projects": *[_type == "project"] | order(order asc),
+        "nav": *[_type == "navigation"][0]
     }`;
       const data = await client.fetch(query);
       const projectsMap = {};
+      let finalNavItems = [...(data.nav?.navItems || [])];
+      let dynamicProjectFiles = [];
 
       data?.projects?.forEach((proj, index) => {
         const uiId = `P${1000 + index}`;
@@ -37,7 +41,30 @@ export const ContentProvider = ({ children }) => {
           ...proj,
           image: proj.image ? urlFor(proj.image).url() : null,
         };
+
+        dynamicProjectFiles.push({
+          id: `project-${proj._id}`,
+          name: `${proj.slug.current}.md`,
+          type: "file",
+          level: 3,
+          icon: "readme",
+          route: `/projects/${uiId}`,
+          parentId: "projects",
+        });
       });
+      const projectsFolderIndex = finalNavItems.findIndex(
+        (item) => item.name === "projects",
+      );
+      if (projectsFolderIndex !== -1) {
+        finalNavItems.splice(
+          projectsFolderIndex + 1,
+          0,
+          ...dynamicProjectFiles,
+        );
+      } else {
+        finalNavItems = [...finalNavItems, ...dynamicProjectFiles];
+      }
+      setNavItems(finalNavItems);
 
       setFiles({
         "Home.jsx": {
@@ -71,7 +98,10 @@ export const ContentProvider = ({ children }) => {
     fetchAllData();
   }, [fetchAllData]);
 
-  const value = useMemo(() => ({ files, loading }), [files, loading]);
+  const value = useMemo(
+    () => ({ files, loading, navItems, fetchAllData }),
+    [files, loading, navItems, fetchAllData],
+  );
   return (
     <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
   );

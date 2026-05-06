@@ -7,11 +7,12 @@ import Terminal from "../components/layout/Terminal";
 import { useEffect, useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMobile } from "../hooks/useMobile";
-import { navItems } from "../data/navigation";
 import { getActiveFileFromPath } from "../utils/navigationUtil";
+import { useContentContext } from "../contexts/ContentContext";
 
 const BaseLayout = () => {
   const isMobile = useMobile(768);
+  const { navItems } = useContentContext();
   const [activeFile, setActiveFile] = useState(() =>
     getActiveFileFromPath(window.location.pathname, navItems),
   );
