@@ -1,0 +1,58 @@
+export const COLOUR_POOL = [
+      {
+        name: "emerald",
+        bg: "bg-emerald-500/10",
+        text: "text-emerald-400",
+        border: "border-emerald-500/30",
+        pulse: "bg-emerald-500 shadow-[0_0_8px_#10b981]",
+      },
+      {
+        name: "blue",
+        bg: "bg-blue-500/10",
+        text: "text-blue-400",
+        border: "border-blue-500/30",
+        pulse: "bg-blue-500 shadow-[0_0_8px_#3b82f6]",
+      },
+      {
+        name: "purple",
+        bg: "bg-purple-500/10",
+        text: "text-purple-400",
+        border: "border-purple-500/30",
+        pulse: "bg-purple-500 shadow-[0_0_8px_#a855f7]",
+      },
+      {
+        name: "amber",
+        bg: "bg-amber-500/10",
+        text: "text-amber-400",
+        border: "border-amber-500/30",
+        pulse: "bg-amber-500 shadow-[0_0_8px_#f59e0b]",
+      },
+      {
+        name: "rose",
+        bg: "bg-rose-500/10",
+        text: "text-rose-400",
+        border: "border-rose-500/30",
+        pulse: "bg-rose-500 shadow-[0_0_8px_#f43f5e]",
+      },
+      {
+        name: "cyan",
+        bg: "bg-cyan-500/10",
+        text: "text-cyan-400",
+        border: "border-cyan-500/30",
+        pulse: "bg-cyan-500 shadow-[0_0_8px_#06b6d4]",
+      },
+      {
+        name: "indigo",
+        bg: "bg-indigo-500/10",
+        text: "text-indigo-400",
+        border: "border-indigo-500/30",
+        pulse: "bg-indigo-500 shadow-[0_0_8px_#6366f1]",
+      },
+      {
+        name: "orange",
+        bg: "bg-orange-500/10",
+        text: "text-orange-400",
+        border: "border-orange-500/30",
+        pulse: "bg-orange-500 shadow-[0_0_8px_#f97316]",
+      },
+    ];

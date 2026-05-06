@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createContext, useMemo } from "react";
 import { client } from "../lib/sanity";
 import { useEffect } from "react";
+import { urlFor } from "../utils/imageUtil";
 
 const ContentContext = createContext(null);
 
@@ -24,9 +25,19 @@ export const ContentProvider = ({ children }) => {
     try {
       const query = `{
         "home": *[_type == "homePage"][0],
-        "contact": *[_type == "contactPage"][0]
+        "contact": *[_type == "contactPage"][0],
+        "projects": *[_type == "project"] | order(order asc)
     }`;
       const data = await client.fetch(query);
+      const projectsMap = {};
+
+      data?.projects?.forEach((proj, index) => {
+        const uiId = `P${1000 + index}`;
+        projectsMap[uiId] = {
+          ...proj,
+          image: proj.image ? urlFor(proj.image).url() : null,
+        };
+      });
 
       setFiles({
         "Home.jsx": {
@@ -43,6 +54,10 @@ export const ContentProvider = ({ children }) => {
           language: data.contact?.language,
           contactLinks: data.contact?.contactLinks,
           type: "EDITOR",
+        },
+        projects: {
+          id: "projects",
+          projects: projectsMap,
         },
       });
     } catch (e) {
