@@ -9,6 +9,7 @@ import Footer from "../components/layout/Footer";
 import { useMobile } from "../hooks/useMobile";
 import { getActiveFileFromPath } from "../utils/navigationUtil";
 import { useContentContext } from "../contexts/ContentContext";
+import BottomPanel from "../components/layout/BottomPanel";
 
 const BaseLayout = () => {
   const { navItems, files } = useContentContext();
@@ -58,9 +59,7 @@ const BaseLayout = () => {
         <Editor hideTerminal={hideTerminal}>
           <Outlet />
         </Editor>
-        {!hideTerminal && (
-          <Terminal activeFile={activeFile} hideTerminal={hideTerminal} />
-        )}
+        <BottomPanel activeFile={activeFile} hideTerminal={hideTerminal} />
         <Footer />
       </div>
     </>
