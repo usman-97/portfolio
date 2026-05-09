@@ -21,7 +21,7 @@ const TechStack = ({ techStack, colourList }) => {
 
   return (
     <div className="flex flex-col gap-3 mb-3 md:flex-row md:flex-wrap">
-      {techStack.map((stack, i) => {
+      {techStack?.map((stack, i) => {
         return (
           <motion.div
             key={i}
@@ -36,7 +36,7 @@ const TechStack = ({ techStack, colourList }) => {
             >
               {stack.area}
             </span>
-            {stack.tech.map((tech, j) => {
+            {stack.tech?.map((tech, j) => {
               const badgeColour = getRandomStyle();
               return (
                 <Badge

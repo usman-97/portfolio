@@ -6,24 +6,10 @@ import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence } from "motion/react";
 import { useContentContext } from "../../contexts/ContentContext";
 
-const SideNavBar = ({ setActiveFile, showNavbar = true, setShowNavbar }) => {
+const SideNavBar = ({ showNavbar = true, setShowNavbar }) => {
   const location = useLocation();
   const isMobile = useMobile();
   const { navItems } = useContentContext();
-
-  useEffect(() => {
-    const activeItem = navItems.find(
-      (item) => item.route === location.pathname,
-    );
-    if (activeItem) {
-      let fileName = activeItem.name;
-      if (activeItem.type === "file" && activeItem.parentId !== "src") {
-        const parentItem = navItems.find((i) => i.name === activeItem.parentId);
-        if (parentItem) fileName = parentItem.name;
-      }
-      setActiveFile(fileName);
-    }
-  }, [location.pathname, setActiveFile]);
 
   useEffect(() => {
     if (isMobile && showNavbar) {
