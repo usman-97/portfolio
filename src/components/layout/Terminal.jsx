@@ -6,7 +6,7 @@ import TerminalBody from "./terminal/TerminalBody";
 import { useEffect } from "react";
 import { useContentContext } from "../../contexts/ContentContext";
 
-const Terminal = ({ activeFile, hideTerminal }) => {
+const Terminal = ({ activeFile }) => {
   const { files, loading, navItems } = useContentContext();
 
   if (loading || !activeFile || !files[activeFile]) {
