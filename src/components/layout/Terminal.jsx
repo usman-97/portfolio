@@ -8,13 +8,13 @@ import { useContentContext } from "../../contexts/ContentContext";
 
 const Terminal = ({ activeFile }) => {
   const { files, loading, navItems } = useContentContext();
+  const location = useLocation();
 
   if (loading || !activeFile || !files[activeFile]) {
     return null;
   }
 
   const content = files[activeFile];
-  const location = useLocation();
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
