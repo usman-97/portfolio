@@ -51,6 +51,12 @@ export default {
       ]
     },
     {
+      name: 'showGitView',
+      title: 'Show Git View',
+      type: 'boolean',
+      options: { layout: 'checkbox' }
+    },
+    {
       name: 'contactLinks',
       title: 'Social & External Links',
       type: 'array',
