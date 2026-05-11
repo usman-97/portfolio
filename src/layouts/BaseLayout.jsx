@@ -18,6 +18,7 @@ const BaseLayout = () => {
   const [activeFile, setActiveFile] = useState(null);
   const [hideTerminal, setHideTerminal] = useState(false);
   const [showNavbar, setShowNavbar] = useState(!isMobile);
+  const [showGitView, setShowGitView] = useState(false);
 
   useEffect(() => {
     setShowNavbar(!isMobile);
@@ -43,6 +44,9 @@ const BaseLayout = () => {
           !currentFileConfig.showTerminal ||
             currentFileConfig.showTerminal === false,
         );
+        setShowGitView(
+          currentFileConfig && currentFileConfig.showGitView === true,
+        );
       }
     } else {
       setActiveFile("Home.jsx");
@@ -56,10 +60,14 @@ const BaseLayout = () => {
         <Header showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
         <LeftPanel />
         <SideNavBar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
-        <Editor hideTerminal={hideTerminal}>
+        <Editor hideBottomPanel={hideTerminal && !showGitView}>
           <Outlet />
         </Editor>
-        <BottomPanel activeFile={activeFile} hideTerminal={hideTerminal} />
+        <BottomPanel
+          activeFile={activeFile}
+          hideTerminal={hideTerminal}
+          showGitView={showGitView}
+        />
         <Footer />
       </div>
     </>

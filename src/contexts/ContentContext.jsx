@@ -80,6 +80,7 @@ export const ContentProvider = ({ children }) => {
           content: data.contact?.editorContent,
           language: data.contact?.language,
           contactLinks: data.contact?.contactLinks,
+          showGitView: data.contact?.showGitView,
           type: "EDITOR",
         },
         projects: {
