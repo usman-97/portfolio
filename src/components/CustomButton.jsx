@@ -12,6 +12,7 @@ const CustomButton = ({
   customLabelStyles = "",
   hoverStyle = "hover:brightness-125 hover:shadow-[0_0_20px_rgba(0,143,93,0.6)]",
   activeStyle = "active:scale-95",
+  buttonType,
 }) => {
   return link ? (
     <Link to={link} target="_blank">
@@ -24,6 +25,7 @@ const CustomButton = ({
     </Link>
   ) : (
     <button
+      type={buttonType ? buttonType : ""}
       className={`flex ${customStyles} items-center justify-center gap-1 py-3 px-5 button ${backgroundColour} rounded-sm cursor-pointer ${border} transition-all ${duration} ${hoverStyle} ${activeStyle}`}
     >
       {icon && <span className="mb-1 shrink-0">{icon}</span>}
