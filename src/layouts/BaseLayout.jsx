@@ -10,6 +10,7 @@ import { useMobile } from "../hooks/useMobile";
 import { getActiveFileFromPath } from "../utils/navigationUtil";
 import { useContentContext } from "../contexts/ContentContext";
 import BottomPanel from "../components/layout/BottomPanel";
+import CustomToast from "../components/CustomToast";
 
 const BaseLayout = () => {
   const { navItems, files } = useContentContext();
@@ -68,6 +69,7 @@ const BaseLayout = () => {
           hideTerminal={hideTerminal}
           showGitView={showGitView}
         />
+        <CustomToast />
         <Footer />
       </div>
     </>

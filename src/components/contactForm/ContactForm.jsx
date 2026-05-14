@@ -11,7 +11,7 @@ import {
 import { useSystemContext } from "../../contexts/SystemContext.jsx";
 
 const ContactForm = ({ setError }) => {
-  const { changeStatus } = useSystemContext();
+  const { changeStatus, showToast } = useSystemContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -20,14 +20,12 @@ const ContactForm = ({ setError }) => {
     e.preventDefault();
 
     if (name === "") {
-      setError("git error: author is required");
+      showToast("git error: author is required", "error");
     } else if (email === "") {
-      setError("git error: email is required");
+      showToast("git error: email is required", "error");
     } else if (message === "") {
-      setError("git error: commit message is required");
+      showToast("git error: commit message is required", "error");
     } else {
-      setError("");
-
       const currentDateTime = new Date().toLocaleString("en-gb", {
         weekday: "short",
         day: "numeric",
@@ -55,11 +53,13 @@ const ContactForm = ({ setError }) => {
         setName("");
         setEmail("");
         setMessage("");
+        showToast("remote: message received successfully", "success");
         setTimeout(() => {
           changeStatus("ready");
         }, 3000);
       } catch (e) {
-        console.error("Push failed: ", e);
+        changeStatus("error");
+        showToast("error: connection to relay server timed out", "error");
       }
     }
   };

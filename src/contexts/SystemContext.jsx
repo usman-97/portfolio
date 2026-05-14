@@ -14,15 +14,32 @@ export const useSystemContext = () => {
 export const SystemProvider = ({ children }) => {
   const [status, setStatus] = useState("ready");
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
 
   const changeStatus = (newStatus, loading = false) => {
     setStatus(newStatus);
     setLoading(loading);
   };
 
+  const showToast = (message, type = "info", displayTime = 4000) => {
+    setToast({ show: true, message: message, type });
+
+    setTimeout(() => {
+      setToast((prev) => ({ ...prev, show: false }));
+    }, displayTime);
+  };
+
+  const toggleToast = (show) => {
+    setToast({ ...toast, show: show });
+  };
+
   const value = useMemo(
-    () => ({ status, loading, changeStatus, setLoading }),
-    [status, loading, changeStatus, setLoading],
+    () => ({ status, loading, toast, changeStatus, showToast, toggleToast }),
+    [status, loading, toast, changeStatus, showToast, toggleToast],
   );
 
   return (
