@@ -1,11 +1,14 @@
 import { ContentProvider } from "./contexts/ContentContext";
+import { SystemProvider } from "./contexts/SystemContext";
 import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
-    <ContentProvider>
-      <AppRouter />
-    </ContentProvider>
+    <SystemProvider>
+      <ContentProvider>
+        <AppRouter />
+      </ContentProvider>
+    </SystemProvider>
   );
 }
 
