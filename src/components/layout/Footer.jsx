@@ -2,6 +2,7 @@ import { FaCodeBranch } from "react-icons/fa";
 import { IoCloseCircle, IoWarning } from "react-icons/io5";
 import { getZoneTime, getYear } from "../../utils/dateUtil";
 import { FaLocationDot } from "react-icons/fa6";
+import StatusBar from "./footer/StatusBar";
 
 const Footer = () => {
   return (
@@ -23,9 +24,12 @@ const Footer = () => {
             <IoWarning className="text-amber-400" />
           </div>
         </div>
-        <div className="flex items-center gap-1 mb-1 md:mb-0">
-          <FaLocationDot size={12} />
-          <p>Manchester, UK ({getZoneTime("Europe/London")})</p>
+        <div className="flex justify-between space-x-5">
+          <StatusBar />
+          <div className="flex items-center gap-1 mb-1 md:mb-0">
+            <FaLocationDot size={12} />
+            <p>Manchester, UK ({getZoneTime("Europe/London")})</p>
+          </div>
         </div>
       </div>
       <div className="p-5 text-xs text-center">

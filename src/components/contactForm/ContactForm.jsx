@@ -8,8 +8,10 @@ import {
   EMAIL_TEMPLATE_ID,
   EMAIL_PUBLIC_KEY,
 } from "../../config/config.js";
+import { useSystemContext } from "../../contexts/SystemContext.jsx";
 
 const ContactForm = ({ setError }) => {
+  const { changeStatus } = useSystemContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -43,6 +45,7 @@ const ContactForm = ({ setError }) => {
       };
 
       try {
+        changeStatus("committing...", true);
         // await emailjs.send(
         //   EMAIL_SERVICE_ID,
         //   EMAIL_TEMPLATE_ID,
@@ -52,6 +55,9 @@ const ContactForm = ({ setError }) => {
         setName("");
         setEmail("");
         setMessage("");
+        setTimeout(() => {
+          changeStatus("ready");
+        }, 3000);
       } catch (e) {
         console.error("Push failed: ", e);
       }
