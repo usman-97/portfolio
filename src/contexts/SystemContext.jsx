@@ -14,11 +14,7 @@ export const useSystemContext = () => {
 export const SystemProvider = ({ children }) => {
   const [status, setStatus] = useState("ready");
   const [loading, setLoading] = useState(false);
-  const [toast, setToast] = useState({
-    show: false,
-    message: "",
-    type: "info",
-  });
+  const [toasts, setToasts] = useState([]);
 
   const changeStatus = (newStatus, loading = false) => {
     setStatus(newStatus);
@@ -26,11 +22,26 @@ export const SystemProvider = ({ children }) => {
   };
 
   const showToast = (message, type = "info", displayTime = 4000) => {
-    setToast({ show: true, message: message, type });
+    const id = Date.now();
+    const newToast = { id, message, type };
+
+    setToasts((prev) => {
+      const currentToasts = [...prev];
+
+      if (currentToasts.length >= 5) {
+        currentToasts.shift();
+      }
+
+      return [...currentToasts, newToast];
+    });
 
     setTimeout(() => {
-      setToast((prev) => ({ ...prev, show: false }));
+      removeToast(id);
     }, displayTime);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
   const toggleToast = (show) => {
@@ -38,8 +49,8 @@ export const SystemProvider = ({ children }) => {
   };
 
   const value = useMemo(
-    () => ({ status, loading, toast, changeStatus, showToast, toggleToast }),
-    [status, loading, toast, changeStatus, showToast, toggleToast],
+    () => ({ status, loading, toasts, changeStatus, showToast, removeToast }),
+    [status, loading, toasts, changeStatus, showToast, removeToast],
   );
 
   return (
