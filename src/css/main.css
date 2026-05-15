@@ -73,6 +73,8 @@
     }
   }
 
+  --breakpoint-3xl: 110rem;
+
   --animate-toast-in: slide-in 0.3s ease-out;
   --animate-progress: progress-shrink 4s linear forwards;
 

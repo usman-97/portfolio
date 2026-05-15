@@ -67,7 +67,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col space-y-5 w-full max-w-2xl"
+      className="flex flex-col space-y-5 w-full 2xl:max-w-xl 3xl:max-w-2xl"
     >
       <CustomInputField
         label="Author"
