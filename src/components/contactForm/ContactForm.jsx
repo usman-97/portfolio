@@ -10,7 +10,7 @@ import {
 } from "../../config/config.js";
 import { useSystemContext } from "../../contexts/SystemContext.jsx";
 
-const ContactForm = ({ setError }) => {
+const ContactForm = () => {
   const { changeStatus, showToast } = useSystemContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
