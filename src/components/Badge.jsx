@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 const Badge = ({ text, bg, border, pulse, colour, animateItem }) => {
   return (
     <motion.div
+      layout
       className={`flex items-center gap-2 px-3 py-1 ${bg} border ${border} rounded-full cursor-pointer`}
       variants={animateItem}
       whileHover={{ scale: 1.05, filter: "brightness(1.2)" }}

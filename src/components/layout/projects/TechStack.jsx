@@ -30,12 +30,12 @@ const TechStack = ({ techStack, colourList }) => {
             initial="hidden"
             animate="visible"
           >
-            <span
+            <motion.span
               className="text-silver/80 text-xs text-center uppercase"
               variants={item}
             >
               {stack.area}
-            </span>
+            </motion.span>
             {stack.tech?.map((tech, j) => {
               const badgeColour = getRandomStyle();
               return (
