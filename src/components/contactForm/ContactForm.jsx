@@ -44,18 +44,18 @@ const ContactForm = ({ setError }) => {
 
       try {
         changeStatus("committing...", true);
-        // await emailjs.send(
-        //   EMAIL_SERVICE_ID,
-        //   EMAIL_TEMPLATE_ID,
-        //   templateParams,
-        //   EMAIL_PUBLIC_KEY,
-        // );
+        await emailjs.send(
+          EMAIL_SERVICE_ID,
+          EMAIL_TEMPLATE_ID,
+          templateParams,
+          EMAIL_PUBLIC_KEY,
+        );
         setName("");
         setEmail("");
         setMessage("");
-        showToast("remote: message received successfully", "success");
         setTimeout(() => {
           changeStatus("ready");
+          showToast("remote: message received successfully", "success");
         }, 3000);
       } catch (e) {
         changeStatus("error");
