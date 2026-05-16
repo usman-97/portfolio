@@ -1,19 +1,24 @@
 import { fileContents } from "../../data/fileContents";
 import { useLocation } from "react-router-dom";
 import { getBreadcrumbStack } from "../../utils/location";
-import { navItems } from "../../data/navigation";
 import TerminalHeader from "./terminal/TerminalHeader";
 import TerminalBody from "./terminal/TerminalBody";
 import { useEffect } from "react";
+import { useContentContext } from "../../contexts/ContentContext";
 
-const Terminal = ({ activeFile, setHideTerminal }) => {
-  const content = fileContents[activeFile];
+const Terminal = ({ activeFile }) => {
+  const { files, loading, navItems } = useContentContext();
   const location = useLocation();
-  const hideTerminal = content?.hideTerminal;
+
+  if (loading || !activeFile || !files[activeFile]) {
+    return null;
+  }
+
+  const content = files[activeFile];
   const currentPageItem = navItems.find(
     (item) => item.route === location.pathname,
   );
-  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.id, navItems);
+  const breadcrumbItems = getBreadcrumbStack(currentPageItem?.route, navItems);
   const fullPath =
     "/" +
     breadcrumbItems
@@ -25,23 +30,17 @@ const Terminal = ({ activeFile, setHideTerminal }) => {
   const commandTag = "guest@profile:";
   const commandTagPath = "~" + activeFileParentDirectory + "$";
 
-  useEffect(() => {
-    setHideTerminal(hideTerminal);
-  }, [activeFile]);
-
   return (
-    !hideTerminal && (
-      <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
-        <TerminalHeader />
-        <TerminalBody
-          key={location.pathname}
-          content={content?.terminalContent}
-          commandTag={commandTag}
-          comandTagPath={commandTagPath}
-          fullPath={fullPath}
-        />
-      </section>
-    )
+    <section className="col-start-2 col-end-4 row-start-3 row-end-4 bg-obsidian lg:col-start-3">
+      <TerminalHeader />
+      <TerminalBody
+        key={location.pathname}
+        content={content?.terminal}
+        commandTag={commandTag}
+        comandTagPath={commandTagPath}
+        fullPath={fullPath}
+      />
+    </section>
   );
 };
 
