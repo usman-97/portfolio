@@ -1,58 +1,43 @@
-# 💻 Developer Workspace Portfolio
+# 💻 Integrated Development Portfolio (IDE)
 
-A high-fidelity, interactive IDE-themed portfolio designed to mimic the workflow and aesthetics of a professional development environment. Built with **React**, **Tailwind CSS**, and **Framer Motion**.
+A deeply immersive, highly interactive developer portfolio engineered to simulate a premium Integrated Development Environment (IDE) interface. Built natively with **React**, **Tailwind CSS v4**, and **Framer Motion**, the application serves live remote data using a headless **Sanity.io** integration via optimized Graph-Relational Queries (GROQ).
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://[YOUR-VERCEL-URL].vercel.app)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](#)
+🔗 **Live Environment:** [usman-shabir.dev](https://usman-shabir.dev/)
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Tailwind Version](https://img.shields.io/badge/tailwind-v4.0-blue)
+![CMS Engine](https://img.shields.io/badge/cms-sanity.io-red)
+![Animation Framework](https://img.shields.io/badge/motion-framer--motion-purple)
 
 ---
 
-## 🚀 Live Demo
-
-**[View Live Project](https://[YOUR-VERCEL-URL].vercel.app)**
-
-## ✨ System Features
-
-- **Integrated File Explorer:** A recursive sidebar navigation system with active-route detection and folder/file state management.
-- **Synchronized Terminal:** A dynamic terminal component that updates its context and file paths based on the currently "open" editor file.
-- **Responsive Workspace:** Fully adaptive grid layout using a custom `useMobile` hook and an IDE-style burger navigation.
-- **Developer Aesthetics:** Custom VS Code-inspired status bar, Git branch indicators (`main *`), and emerald-accented UI.
-- **Advanced Animations:** Framer Motion-powered page transitions, slide-in mobile menus, and staggered tech-stack badges.
-
-## 🏗️ Technical Stack
-
-| Category       | Tools                                       |
-| :------------- | :------------------------------------------ |
-| **Frontend**   | React 18, Vite                              |
-| **Styling**    | Tailwind CSS                                |
-| **Animation**  | Framer Motion                               |
-| **Icons**      | Lucide React, React Icons (RxHamburgerMenu) |
-| **Routing**    | React Router Dom v6                         |
-| **Deployment** | Vercel                                      |
-
-## 📂 Project Structure
+## 📂 Project Blueprint
 
 ```text
-.
-├── public/             # Static assets (Favicons, images)
 ├── src/
-│   ├── animation/      # Framer Motion variants & animation logic
-│   ├── assets/         # Imported media and icon assets
-│   ├── components/     # Reusable UI (Header, Footer, TreeItem)
-│   ├── constants/      # App data (navItems, tech stack, badge colors)
-│   ├── css/            # Global styles and Tailwind directives
-│   ├── data/           # Static JSON/data objects
-│   ├── hooks/          # Custom hooks (useMobile.jsx)
-│   ├── layouts/        # BaseLayout (Grid & Workspace State)
-│   ├── pages/          # Individual View components (Home, Projects)
-│   ├── router/         # React Router configuration
-│   ├── themes/         # Color palettes and theme configurations
-│   ├── utils/          # Helper functions (navigationUtils.js)
-│   ├── App.jsx         # Root component
-│   └── main.jsx        # Entry point
-├── index.html          # HTML template & Meta tags
-├── vercel.json         # Vercel deployment & rewrite rules
-└── package.json        # Dependencies and scripts
+│   ├── animation/           # Framer motion variant mappings & orchestrators
+│   ├── assets/              # Static typography matrices & core imagery
+│   ├── components/          # Shared atomic components & feature structures
+│   │   ├── contactForm/     # Local validation & transaction layouts
+│   │   ├── layout/          # Core workspace frames, activity bars, & explorers
+│   │   ├── Badge.jsx
+│   │   ├── CustomButton.jsx
+│   │   ├── CustomToast.jsx
+│   │   ├── IconButton.jsx
+│   │   └── ToastContainer.jsx
+│   ├── config/              # Sanity client configurations & API transport parameters
+│   ├── constants/           # Frozen layout mappings & fallback pooling matrix arrays
+│   ├── contexts/            # Global state kernels (System Engine, Content Cache)
+│   ├── css/                 # Tailwind v4 structural layers & directive configurations
+│   ├── data/                # Mock datasets & localized terminal files
+│   ├── hooks/               # Custom lifecycle handlers & semantic abstraction layers
+│   ├── layouts/             # Root structural window view wrappers
+│   ├── lib/                 # Third-party utilities & external pipeline initializers
+│   ├── pages/               # Dynamically keyed view layers (Projects, Index Shells)
+│   ├── router/              # Declarative application routing configuration
+│   ├── themes/              # Color theme configurations & interface definitions
+│   ├── utils/               # Functional helper blocks & string formatting routines
+│   ├── App.jsx              # Main layout router
+│   └── main.jsx             # React DOM entry mount target
+└── studio/                  # Sanity Studio CMS headless backend architecture
 ```
